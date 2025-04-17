@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trip | The Hooker Fishing & Snorkeling</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Book your fishing or snorkeling adventure with The Hooker Charters in Aruba. Choose from bottom fishing, deep sea fishing, snorkeling, and sunset trips.">
+    <meta name="keywords" content="book fishing Aruba, Aruba fishing charter, snorkeling booking Aruba, The Hooker Charters booking">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1a3c6e;
+            padding: 5px 0;
+            min-height: 50px;
+        }
+        
+        .navbar-brand {
+            font-size: 1.6rem;
+            padding: 0;
+        }
+        
+        .navbar-collapse {
+            background-color: rgba(26, 60, 110, 0.95);
+            padding: 10px;
+            border-radius: 0 0 8px 8px;
+            margin-top: 5px;
+        }
+        
+        .nav-item {
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 0;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-link {
+            padding: 0.5rem 1rem !important;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            color: #f8c12c !important;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/fishing-header.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Trip Cards */
+        .trip-card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .trip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .trip-card .card-header {
+            background-color: #1a3c6e;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding: 15px 20px;
+        }
+        
+        .trip-card .card-body {
+            padding: 20px;
+        }
+        
+        .trip-details {
+            margin-bottom: 15px;
+        }
+        
+        .trip-details i {
+            color: #1a3c6e;
+            width: 25px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a3c6e;
+            margin: 15px 0;
+        }
+        
+        /* Booking Form */
+        .booking-form {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group label {
+            font-weight: 500;
+        }
+        
+        .btn-primary {
+            background-color: #1a3c6e;
+            border-color: #1a3c6e;
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #15305a;
+            border-color: #15305a;
+        }
+        
+        /* Additional Info */
+        .additional-info {
+            background-color: #f0f4f8;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .additional-info h3 {
+            color: #1a3c6e;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+        }
+        
+        .info-item i {
+            color: #1a3c6e;
+            width: 25px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a3c6e;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        footer h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        footer a {
+            color: white;
+        }
+        
+        footer a:hover {
+            color: #f8c12c;
+            text-decoration: none;
+        }
+        
+        .footer-contact i {
+            width: 25px;
+            margin-right: 10px;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Credit Card Payment Notice */
+        .payment-notice {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        /* Time Slots */
+        .time-slots {
+            margin-top: 15px;
+        }
+        
+        .time-slot-label {
+            display: block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .time-slot-label:hover {
+            background-color: #d1d7dd;
+        }
+        
+        .time-slot-input:checked + .time-slot-label {
+            background-color: #1a3c6e;
+            color: white;
+        }
+        
+        .time-slot-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">The Hooker Fishing & Snorkeling</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#boats">Our Boats</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#trips">Fishing Trips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#find-us">Find Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="photo-gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="booking.html">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Book Your Adventure</h1>
+            <p class="lead">Choose from our selection of fishing and snorkeling trips</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Our Trips</h2>
+                
+                <!-- Inshore Bottom Fishing Section -->
+                <h3 class="mb-3">Inshore Bottom Fishing</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card trip-card">
+                            <div class="card-header">Bottom Fishing (3 Hours)</div>
+                            <div class="card-body">
+                                <div class="trip-details">
+                                    <p><i class="fas fa-clock"></i> 3 Hours</p>
+                                    <p><i class="fas fa-users"></i> Up to 6 people</p>
+                                    <p><i class="fas fa-ship"></i> The Wicked Hooker (44ft Bertram yacht)</p>
+                                </div>
+                                <p class="price">$400</p>
+                                <button class="btn btn-primary select-trip" data-trip="Bottom Fishing (3 Hours)" data-price="400">Select Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card trip-card">
+                            <div class="card-header">Bottom Fishing (6 Hours)</div>
+                            <div class="card-body">
+                                <div class="trip-details">
+                                    <p><i class="fas fa-clock"></i> 6 Hours</p>
+                                    <p><i class="fas fa-users"></i> Up to 6 people</p>
+                                    <p><i class="fas fa-ship"></i> The Wicked Hooker (44ft Bertram yacht)</p>
+                                </div>
+                                <p class="price">$750</p>
+                                <button class="btn btn-primary select-trip" data-trip="Bottom Fishing (6 Hours)" data-price="750">Select Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card trip-card">
+                            <div class="card-header">Sunset Fishing (3 Hours)</div>
+                            <div class="card-body">
+                                <div class="trip-details">
+                                    <p><i class="fas fa-clock"></i> 3 Hours</p>
+                                    <p><i class="fas fa-users"></i> Up to 6 people</p>
+                                    <p><i class="fas fa-ship"></i> The Wicked Hooker (44ft Bertram yacht)</p>
+                                </div>
+                                <p class="price">$400</p>
+                                <button class="btn btn-primary select-trip" data-trip="Sunset Fishing (3 Hours)" data-price="400">Select Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card trip-card">
+                            <div class="card-header">Bottom Fishing & Snorkeling (4 Hours)</div>
+                            <div class="card-body">
+                                <div class="trip-details">
+                                    <p><i class="fas fa-clock"></i> 4 Hours</p>
+                                    <p><i class="fas fa-users"></i> Up to 6 people</p>
+                                    <p><i class="fas fa-ship"></i> The Wicked Hooker (44ft Bertram yacht)</p>
+                                </div>
+                                <p class="price">$600</p>
+                                <button class="btn btn-primary select-trip" data-trip="Bottom Fishing & Snorkeling (4 Hours)" data-price="600">Select Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Deep Sea Fishing Section -->
+                <h3 class="mb-3 mt-5">Deep Sea Fishing (Trolling)</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card trip-card">
+                            <div class="card-header">Deep Sea Fishing (4 Hours)</div>
+                            <div class="card-body">
+                                <div class="trip-details">
+                                    <p><i class="fas fa-clock"></i> 4 Hours</p>
+                                    <p><i class="fas fa-users"></i> Up to 6 people</p>
+                                    <p><i class="fas fa-ship"></i> The Wicked Hooker (44ft Bertram yacht)</p>
+                                </div>
+                                <p class="price">$600</p>
+                                <button class="btn btn-primary select-trip" data-trip="Deep Sea Fishing (4 Hours)" data-price="600">Select Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card trip-card">
+                            <div class="card-header">Deep Sea Fishing (6 Hours)</div>
+                            <div class="card-body">
+                                <div class="trip-details">
+                                    <p><i class="fas fa-clock"></i> 6 Hours</p>
+                                    <p><i class="fas fa-users"></i> Up to 6 people</p>
+                                    <p><i class="fas fa-ship"></i> The Wicked Hooker (44ft Bertram yacht)</p>
+                                </div>
+                                <p class="price">$850</p>
+                                <button class="btn btn-primary select-trip" data-trip="Deep Sea Fishing (6 Hours)" data-price="850">Select Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card trip-card">
+                            <div class="card-header">Deep Sea Fishing (8 Hours)</div>
+                            <div class="card-body">
+                                <div class="trip-details">
+                                    <p><i class="fas fa-clock"></i> 8 Hours</p>
+                                    <p><i class="fas fa-users"></i> Up to 6 people</p>
+                                    <p><i class="fas fa-ship"></i> The Wicked Hooker (44ft Bertram yacht)</p>
+                                </div>
+                                <p class="price">$1100</p>
+                                <button class="btn btn-primary select-trip" data-trip="Deep Sea Fishing (8 Hours)" data-price="1100">Select Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card trip-card">
+                            <div class="card-header">Sightseeing & Snorkeling (4 Hours)</div>
+                            <div class="card-body">
+                                <div class="trip-details">
+                                    <p><i class="fas fa-clock"></i> 4 Hours</p>
+                                    <p><i class="fas fa-users"></i> Up to 6 people</p>
+                                    <p><i class="fas fa-ship"></i> The Wicked Hooker (44ft Bertram yacht)</p>
+                                    <p><i class="fas fa-cocktail"></i> Drinks & Snacks Included</p>
+                                </div>
+                                <p class="price">$1000</p>
+                                <button class="btn btn-primary select-trip" data-trip="Sightseeing & Snorkeling (4 Hours)" data-price="1000">Select Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Information -->
+                <div class="additional-info mt-5">
+                    <h3>Important Information</h3>
+                    <div class="info-item">
+                        <p><i class="fas fa-users"></i> Prices are for up to 6 persons. Each additional person is $50 (maximum 12 passengers per boat).</p>
+                    </div>
+                    <div class="info-item">
+                        <p><i class="fas fa-credit-card"></i> A 5% surcharge will be added when paying with credit card.</p>
+                    </div>
+                    <div class="info-item">
+                        <p><i class="fas fa-hand-holding-usd"></i> Tips are cash only.</p>
+                    </div>
+                    <div class="info-item">
+                        <p><i class="fas fa-map-marker-alt"></i> We dock at Bucuti yacht club Aruba, right behind the airport.</p>
+                    </div>
+                    
+                    <h4 class="mt-4">Available Time Slots:</h4>
+                    <div class="info-item">
+                        <p><strong>Bottom Fishing (3 Hours):</strong> 7am-10am, 12pm-3pm</p>
+                        <p><strong>Bottom Fishing (6 Hours):</strong> 7am-1pm</p>
+                        <p><strong>Sunset Fishing:</strong> 5pm-8pm</p>
+                        <p><strong>Bottom Fishing & Snorkeling:</strong> 7am-11am, 12pm-4pm</p>
+                        <p><strong>Deep Sea Fishing (4 Hours):</strong> 7am-11am, 12pm-4pm</p>
+                        <p><strong>Deep Sea Fishing (6 Hours):</strong> 7am-1pm</p>
+                        <p><strong>Deep Sea Fishing (8 Hours):</strong> 7am-3pm</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Booking Form -->
+            <div class="col-lg-4">
+                <div class="booking-form" id="bookingForm" style="display: none;">
+                    <h3 class="mb-4">Book Your Trip</h3>
+                    <form id="tripBookingForm">
+                        <div class="form-group">
+                            <label for="selectedTrip">Selected Trip</label>
+                            <input type="text" class="form-control" id="selectedTrip" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tripDate">Date</label>
+                            <input type="date" class="form-control" id="tripDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Time Slot</label>
+                            <div class="time-slots" id="timeSlots">
+                                <!-- Time slots will be populated dynamically -->
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="numPeople">Number of People</label>
+                            <select class="form-control" id="numPeople" required>
+                                <option value="1">1 person</option>
+                                <option value="2">2 people</option>
+                                <option value="3">3 people</option>
+                                <option value="4">4 people</option>
+                                <option value="5">5 people</option>
+                                <option value="6">6 people</option>
+                                <option value="7">7 people (+$50)</option>
+                                <option value="8">8 people (+$100)</option>
+                                <option value="9">9 people (+$150)</option>
+                                <option value="10">10 people (+$200)</option>
+                                <option value="11">11 people (+$250)</option>
+                                <option value="12">12 people (+$300)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customerName">Your Name</label>
+                            <input type="text" class="form-control" id="customerName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customerEmail">Email</label>
+                            <input type="email" class="form-control" id="customerEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customerPhone">Phone</label>
+                            <input type="tel" class="form-control" id="customerPhone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="specialRequests">Special Requests</label>
+                            <textarea class="form-control" id="specialRequests" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select class="form-control" id="paymentMethod" required>
+                                <option value="cash">Cash (Pay on arrival)</option>
+                                <option value="credit">Credit Card (5% surcharge)</option>
+                            </select>
+                        </div>
+                        
+                        <div id="creditCardFields" style="display: none;">
+                            <div class="payment-notice">
+                                <p><i class="fas fa-info-circle"></i> A 5% surcharge will be added to your total when paying by credit card.</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" class="form-control" id="cardName">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" class="form-control" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX">
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardExpiry">Expiration Date</label>
+                                        <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardCVC">CVC</label>
+                                        <input type="text" class="form-control" id="cardCVC" placeholder="XXX">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mt-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="mb-0">Base Price: <span id="basePrice">$0</span></p>
+                                    <p class="mb-0" id="extraPeopleCharge" style="display: none;">Extra People: <span id="extraCharge">$0</span></p>
+                                    <p class="mb-0" id="creditCardSurcharge" style="display: none;">Credit Card Fee (5%): <span id="surchargeAmount">$0</span></p>
+                                    <p class="font-weight-bold mb-0">Total: <span id="totalPrice">$0</span></p>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Book Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>The Hooker Fishing & Snorkeling</h4>
+                    <p>Experience the best fishing and snorkeling adventures in Aruba with our professional charter services.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Bucuti yacht club, Aruba</p>
+                        <p><i class="fas fa-phone"></i> +297 6603623</p>
+                        <p><i class="fas fa-envelope"></i> thehookercharters@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 The Hooker Fishing & Snorkeling. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and jQuery Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Close menu when clicking outside
+            $(document).click(function(event) {
+                var clickover = $(event.target);
+                var _opened = $(".navbar-collapse").hasClass("show");
+                
+                if (_opened === true && !clickover.hasClass("navbar-toggler") && 
+                    !clickover.hasClass("navbar-toggler-icon") && 
+                    !clickover.closest('.navbar-collapse').length) {
+                    
+                    $(".navbar-toggler").click();
+                }
+            });
+            
+            // Close menu when clicking any nav link
+            $('.nav-link').click(function() {
+                $('.navbar-collapse').collapse('hide');
+            });
+            
+            // Trip selection
+            $('.select-trip').click(function() {
+                var tripName = $(this).data('trip');
+                var tripPrice = $(this).data('price');
+                
+                $('#selectedTrip').val(tripName);
+                $('#basePrice').text('$' + tripPrice);
+                updateTotalPrice();
+                
+                // Show booking form
+                $('#bookingForm').fadeIn();
+                
+                // Scroll to booking form
+                $('html, body').animate({
+                    scrollTop: $("#bookingForm").offset().top - 100
+                }, 1000);
+                
+                // Populate time slots based on selected trip
+                populateTimeSlots(tripName);
+            });
+            
+            // Number of people change
+            $('#numPeople').change(function() {
+                updateTotalPrice();
+            });
+            
+            // Payment method change
+            $('#paymentMethod').change(function() {
+                if ($(this).val() === 'credit') {
+                    $('#creditCardFields').slideDown();
+                    $('#creditCardSurcharge').show();
+                } else {
+                    $('#creditCardFields').slideUp();
+                    $('#creditCardSurcharge').hide();
+                }
+                updateTotalPrice();
+            });
+            
+            // Form submission
+            $('#tripBookingForm').submit(function(e) {
+                e.preventDefault();
+                
+                // Here you would normally send the data to your server
+                // For now, we'll just show an alert
+                alert('Thank you for your booking! We will contact you shortly to confirm your reservation.');
+                
+                // Reset form
+                this.reset();
+                $('#bookingForm').fadeOut();
+            });
+            
+            // Function to update total price
+            function updateTotalPrice() {
+                var basePrice = parseInt($('#basePrice').text().replace('$', ''));
+                var numPeople = parseInt($('#numPeople').val());
+                var extraCharge = 0;
+                var surcharge = 0;
+                var total = basePrice;
+                
+                // Calculate extra people charge
+                if (numPeople > 6) {
+                    extraCharge = (numPeople - 6) * 50;
+                    $('#extraPeopleCharge').show();
+                    $('#extraCharge').text('$' + extraCharge);
+                } else {
+                    $('#extraPeopleCharge').hide();
+                }
+                
+                total += extraCharge;
+                
+                // Calculate credit card surcharge if applicable
+                if ($('#paymentMethod').val() === 'credit') {
+                    surcharge = Math.round(total * 0.05);
+                    $('#surchargeAmount').text('$' + surcharge);
+                    total += surcharge;
+                }
+                
+                // Update total price
+                $('#totalPrice').text('$' + total);
+            }
+            
+            // Function to populate time slots based on selected trip
+            function populateTimeSlots(tripName) {
+                var timeSlots = [];
+                
+                // Define available time slots for each trip type
+                if (tripName.includes('Bottom Fishing (3 Hours)')) {
+                    timeSlots = ['7:00 AM - 10:00 AM', '12:00 PM - 3:00 PM'];
+                } else if (tripName.includes('Bottom Fishing (6 Hours)')) {
+                    timeSlots = ['7:00 AM - 1:00 PM'];
+                } else if (tripName.includes('Sunset Fishing')) {
+                    timeSlots = ['5:00 PM - 8:00 PM'];
+                } else if (tripName.includes('Bottom Fishing & Snorkeling')) {
+                    timeSlots = ['7:00 AM - 11:00 AM', '12:00 PM - 4:00 PM'];
+                } else if (tripName.includes('Deep Sea Fishing (4 Hours)')) {
+                    timeSlots = ['7:00 AM - 11:00 AM', '12:00 PM - 4:00 PM'];
+                } else if (tripName.includes('Deep Sea Fishing (6 Hours)')) {
+                    timeSlots = ['7:00 AM - 1:00 PM'];
+                } else if (tripName.includes('Deep Sea Fishing (8 Hours)')) {
+                    timeSlots = ['7:00 AM - 3:00 PM'];
+                } else if (tripName.includes('Sightseeing & Snorkeling')) {
+                    timeSlots = ['9:00 AM - 1:00 PM', '1:00 PM - 5:00 PM'];
+                }
+                
+                // Clear existing time slots
+                $('#timeSlots').empty();
+                
+                // Add new time slots
+                for (var i = 0; i < timeSlots.length; i++) {
+                    var slotId = 'timeSlot' + i;
+                    var timeSlot = '<div class="form-check">' +
+                                   '<input type="radio" class="time-slot-input" name="timeSlot" id="' + slotId + '" value="' + timeSlots[i] + '" required ' + (i === 0 ? 'checked' : '') + '>' +
+                                   '<label class="time-slot-label" for="' + slotId + '">' + timeSlots[i] + '</label>' +
+                                   '</div>';
+                    $('#timeSlots').append(timeSlot);
+                }
+            }
+            
+            // Set minimum date for booking to tomorrow
+            var tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            var dd = String(tomorrow.getDate()).padStart(2, '0');
+            var mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            var yyyy = tomorrow.getFullYear();
+            var minDate = yyyy + '-' + mm + '-' + dd;
+            $('#tripDate').attr('min', minDate);
+            
+            // Set default date to tomorrow
+            $('#tripDate').val(minDate);
+        });
+    </script>
+</body>
+</html>

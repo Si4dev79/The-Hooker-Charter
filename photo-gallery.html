@@ -1,0 +1,4114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - The Hooker Fishing & Snorkeling</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* ONLY MAKING THE NAVBAR FINER - NOT TOUCHING THE LOGO */
+        
+        /* Navbar container - even finer */
+        .navbar {
+            background-color: #1a3c6e !important;
+            padding: 0 !important; /* Minimum padding */
+            min-height: 30px !important; /* REDUCED from 35px to 30px */
+            max-height: 30px !important; /* Added max-height constraint */
+        }
+        
+        /* Container adjustments */
+        .navbar .container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            height: 30px !important; /* Fixed height */
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        /* Hamburger button adjustments */
+        .navbar-toggler {
+            padding: 0 !important; /* No padding */
+            margin: 0 !important; /* No margin */
+            height: 20px !important; /* Fixed small height */
+        }
+        
+        /* Hamburger icon smaller */
+        .navbar-toggler-icon {
+            height: 14px !important; /* REDUCED from 16px to 14px */
+            width: 18px !important; /* REDUCED from 20px to 18px */
+        }
+        
+        /* Make hamburger lines thinner */
+        .navbar-toggler-icon:before,
+        .navbar-toggler-icon:after,
+        .navbar-toggler-icon span {
+            height: 1px !important; /* REDUCED from 1.5px to 1px */
+        }
+        
+        /* Dropdown menu adjustments */
+        .navbar-collapse {
+            top: 30px !important; /* Position dropdown just below navbar */
+            padding: 4px !important; /* Reduced padding */
+            margin-top: 0 !important;
+        }
+        
+        /* Navigation items in dropdown */
+        .nav-item {
+            padding: 2px 0 !important; /* REDUCED from 4px to 2px */
+            margin: 0 !important;
+        }
+        
+        /* Navigation links */
+        .nav-link {
+            padding: 3px !important; /* REDUCED from 6px to 3px */
+        }
+        
+        /* Ensure logo stays centered vertically but don't change its size */
+        .navbar-brand {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            /* NO CHANGES to font-size or other styling properties */
+        }
+        
+        .navbar-collapse{
+            background-color: rgba(26, 60, 110, 0.95);
+            padding: 10px;
+            border-radius: 0 0 8px 8px;
+            margin-top: 5px;
+        }
+
+        .nav-item{
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 0;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+        /* Make sure nav links don't use Dancing Script */
+        .navbar .nav-link {
+            font-family: 'Roboto', sans-serif !important;
+            font-weight: 400 !important;
+        }
+        
+        .nav-link:hover {
+            color: #f8c12c !important; /* Match hover color */
+        }
+        
+        .nav-item.active .nav-link {
+            color: #f8c12c !important; /* Match active link color */
+        }
+        
+        .video-header {
+            position: relative;
+            height: 70vh;
+            min-height: 200px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .video-header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        
+        .video-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding-top: 15vh;
+        }
+        
+        .video-content h1 {
+            font-weight: 700;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+        
+        .video-content p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            font-weight: 700;
+            color: #1a3c6e; /* Match heading color */
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #f8c12c; /* Match accent color */
+            margin: 15px auto 0;
+        }
+        
+        .bg-light {
+            background-color: #f8f9fa;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background-color: #f8c12c; /* Match primary button color */
+            border-color: #f8c12c;
+            color: #1a3c6e; /* Match button text color */
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e6b424; /* Slightly darker on hover */
+            border-color: #e6b424;
+            color: #1a3c6e;
+        }
+        
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-box i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            background-color: #1a3c6e; /* Match footer background */
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer h5 {
+            color: #f8c12c; /* Match footer heading color */
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer ul li a {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer ul li a:hover {
+            color: #f8c12c; /* Match footer link hover */
+            text-decoration: none;
+        }
+        
+        .social-icons {
+            font-size: 1.5rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+        }
+        
+        .social-icons a:hover {
+            color: #f8c12c; /* Match social icon hover */
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Gallery specific styles */
+        .gallery-carousel {
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            background-color: #000;
+        }
+        
+        .carousel-caption {
+            background: rgba(26, 60, 110, 0.7); /* Match brand color with transparency */
+            padding: 15px;
+            border-radius: 5px;
+            bottom: 20px;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .thumbnail {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            margin: 5px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .thumbnail:hover {
+            transform: translateY(-3px);
+        }
+        
+        .thumbnail.active {
+            border-color: #f8c12c; /* Match accent color */
+        }
+        
+        .carousel-control-prev, .carousel-control-next {
+            width: 5%;
+            opacity: 0.8;
+            background: rgba(26, 60, 110, 0.3); /* Match brand color with transparency */
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .carousel-control-next {
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .carousel-indicators li {
+            background-color: rgba(248, 193, 44, 0.5); /* Match accent color with transparency */
+        }
+        
+        .carousel-indicators li.active {
+            background-color: #f8c12c; /* Match accent color */
+        }
+        
+        /* Make sure dropdown works properly */
+        .dropdown-menu {
+            display: none;
+        }
+        
+        .dropdown.show .dropdown-menu {
+            display: block;
+        }
+        
+        /* Video Gallery Styles */
+        .video-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h5 {
+            color: #1a3c6e;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .video-info p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        
+        /* Video Carousel Styles */
+        .video-carousel {
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            padding: 15px;
+            bottom: 20px;
+        }
+        
+        .video-thumbnail-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .video-thumbnail {
+            width: 120px;
+            height: 68px;
+            margin: 0 5px;
+            cursor: pointer;
+            position: relative;
+            border: 3px solid transparent;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail.active {
+            border-color: #f8c12c;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-icon i {
+            font-size: 12px;
+        }
+        
+        #videoCarousel .carousel-control-prev,
+        #videoCarousel .carousel-control-next {
+            width: 10%;
+        }
+        
+        /* Remove or modify this CSS if it exists in your page */
+        .video-background::before,
+        .video-container::before,
+        .video-overlay,
+        .background-overlay {
+            background: none !important; /* This removes any background overlay */
+            background-color: transparent !important;
+            opacity: 0 !important;
+        }
+        
+        /* If the overlay is implemented differently, you might need to modify these */
+        .video-section .overlay,
+        .video-container .overlay,
+        [class*="-overlay"] {
+            background: none !important;
+            opacity: 0 !important;
+        }
+        
+        /* If the video has a gradient overlay */
+        .video-background::after,
+        .video-container::after {
+            background: none !important;
+            background-image: none !important;
+        }
+        
+        /* Fix logo font */
+        .navbar-brand, .navbar-brand * {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+        }
+        
+        /* Style the hamburger menu exactly like index.html */
+        .navbar-toggler {
+            padding: 0.25rem 0.75rem;
+            font-size: 1.25rem;
+            line-height: 1;
+            background-color: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        .navbar-toggler:focus, .navbar-toggler:hover {
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        /* Only change the hamburger menu icon */
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            background-size: 100% !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+        
+        /* Make sure the toggler button styling is clean */
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.1) !important;
+            padding: 0.25rem 0.75rem !important;
+            background: transparent !important;
+        }
+        
+        .navbar-toggler:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Add this style to match the booking page hamburger menu dropdown */
+        .navbar-collapse {
+            background-color: rgba(26, 60, 110, 0.95);
+            padding: 10px;
+            border-radius: 0 0 8px 8px;
+            margin-top: 5px;
+        }
+        
+        .nav-item {
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 0;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-link {
+            padding: 0.5rem 1rem !important;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            color: #f8c12c !important;
+        }
+        
+        /* Logo styling with Dancing Script font */
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive !important;
+            font-weight: 700 !important;
+            font-size: 1.8rem !important;
+        }
+        
+        /* Overall navbar styling */
+        .navbar {
+            background-color: #1a3c6e !important;
+            padding: 10px 0 !important;
+        }
+        
+        /* Hamburger icon */
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+        
+        /* Dropdown menu styling */
+        .navbar-collapse {
+            background-color: rgba(26, 60, 110, 0.95) !important;
+            padding: 10px !important;
+            border-radius: 0 0 8px 8px !important;
+            margin-top: 5px !important;
+        }
+        
+        /* Menu items */
+        .nav-item {
+            text-align: center !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            padding: 5px 0 !important;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        /* Menu links */
+        .nav-link {
+            color: white !important;
+            padding: 10px !important;
+        }
+        
+        /* Active link */
+        .nav-item.active .nav-link {
+            color: #f8c12c !important;
+        }
+        
+        /* Book Now button - this will style the last nav item differently */
+        .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 5px !important;
+            font-weight: bold !important;
+            padding: 10px !important;
+            margin: 5px 15px !important;
+        }
+        
+        /* More precise logo styling to match screenshot exactly */
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive !important;
+            font-weight: 400 !important;
+            font-size: 1.5rem !important; /* Adjusted size */
+            color: white !important;
+            line-height: 1.2 !important;
+            margin-right: 20px !important;
+        }
+        
+        /* Overall navbar styling */
+        .navbar {
+            background-color: #1a3c6e !important;
+            padding: 8px 0 !important;
+        }
+        
+        /* Custom hamburger icon that exactly matches screenshot */
+        .navbar-toggler {
+            border: none !important;
+            padding: 0.25rem 0.75rem !important;
+            outline: none !important;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+        }
+        
+        /* Create custom hamburger icon with CSS */
+        .navbar-toggler-icon {
+            position: relative !important;
+            height: 24px !important;
+            width: 30px !important;
+            background-image: none !important;
+            background-color: transparent !important;
+        }
+        
+        /* Three lines for hamburger icon */
+        .navbar-toggler-icon:before,
+        .navbar-toggler-icon:after,
+        .navbar-toggler-icon span {
+            position: absolute !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 3px !important;
+            background-color: white !important;
+            border-radius: 1px !important;
+            content: '' !important;
+        }
+        
+        .navbar-toggler-icon:before {
+            top: 0 !important;
+        }
+        
+        .navbar-toggler-icon span {
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+        }
+        
+        .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* Dropdown menu styling */
+        .navbar-collapse {
+            background-color: rgba(26, 60, 110, 0.95) !important;
+            padding: 10px !important;
+            border-radius: 0 0 8px 8px !important;
+            margin-top: 5px !important;
+        }
+        
+        /* Menu items */
+        .nav-item {
+            text-align: center !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            padding: 8px 0 !important;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        /* Menu links */
+        .nav-link {
+            color: white !important;
+            padding: 10px !important;
+            font-size: 16px !important;
+        }
+        
+        /* Active link */
+        .nav-item.active .nav-link {
+            color: #f8c12c !important;
+        }
+        
+        /* Book Now button */
+        .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 5px !important;
+            font-weight: bold !important;
+            padding: 10px 20px !important;
+            margin: 5px 15px !important;
+            display: inline-block !important;
+        }
+        
+        /* Include Winky Rough font */
+        @font-face {
+            font-family: 'Winky Rough';
+            src: url('fonts/WinkyRough-Regular.woff2') format('woff2'),
+                 url('fonts/WinkyRough-Regular.woff') format('woff'),
+                 url('fonts/WinkyRough-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        /* Apply Winky Rough font to the navbar brand */
+        .navbar-brand {
+            font-family: 'Winky Rough', cursive !important;
+            font-weight: normal !important;
+            font-size: 1.5rem !important;
+            color: white !important;
+            line-height: 1.2 !important;
+            margin-right: 20px !important;
+        }
+        
+        /* Overall navbar styling */
+        .navbar {
+            background-color: #1a3c6e !important;
+            padding: 8px 0 !important;
+        }
+        
+        /* Custom hamburger icon that matches screenshot */
+        .navbar-toggler {
+            border: none !important;
+            padding: 0.25rem 0.75rem !important;
+            outline: none !important;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+        }
+        
+        /* Create custom hamburger icon with CSS */
+        .navbar-toggler-icon {
+            position: relative !important;
+            height: 24px !important;
+            width: 30px !important;
+            background-image: none !important;
+            background-color: transparent !important;
+        }
+        
+        /* Three lines for hamburger icon */
+        .navbar-toggler-icon:before,
+        .navbar-toggler-icon:after,
+        .navbar-toggler-icon span {
+            position: absolute !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 3px !important;
+            background-color: white !important;
+            border-radius: 1px !important;
+            content: '' !important;
+        }
+        
+        .navbar-toggler-icon:before {
+            top: 0 !important;
+        }
+        
+        .navbar-toggler-icon span {
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+        }
+        
+        .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* Dropdown menu styling */
+        .navbar-collapse {
+            background-color: rgba(26, 60, 110, 0.95) !important;
+            padding: 10px !important;
+            border-radius: 0 0 8px 8px !important;
+            margin-top: 5px !important;
+        }
+        
+        /* Menu items */
+        .nav-item {
+            text-align: center !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            padding: 8px 0 !important;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        /* Menu links */
+        .nav-link {
+            color: white !important;
+            padding: 10px !important;
+            font-size: 16px !important;
+        }
+        
+        /* Active link */
+        .nav-item.active .nav-link {
+            color: #f8c12c !important;
+        }
+        
+        /* Book Now button */
+        .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 5px !important;
+            font-weight: bold !important;
+            padding: 10px 20px !important;
+            margin: 5px 15px !important;
+            display: inline-block !important;
+        }
+        
+        /* Navbar styling - MAKING IT FINER/THINNER */
+        .navbar {
+            background-color: #1a3c6e !important;
+            padding: 2px 0 !important; /* REDUCED from 4px to 2px */
+            min-height: 40px !important; /* REDUCED from 45px to 40px */
+        }
+        
+        /* Container adjustments for finer navbar */
+        .navbar .container {
+            padding-top: 1px !important; /* REDUCED from 2px to 1px */
+            padding-bottom: 1px !important; /* REDUCED from 2px to 1px */
+        }
+        
+        /* Logo adjustment for finer navbar */
+        .navbar-brand {
+            font-family: 'Satisfy', cursive !important;
+            font-weight: bold !important;
+            font-size: 1.5rem !important; /* REDUCED from 1.6rem to 1.5rem */
+            line-height: 1.1 !important; /* REDUCED from 1.2 to 1.1 */
+            margin-right: 15px !important; /* REDUCED from 20px to 15px */
+            padding-top: 2px !important; /* Added to fine-tune vertical alignment */
+            padding-bottom: 2px !important; /* Added to fine-tune vertical alignment */
+        }
+        
+        /* Hamburger button adjustments */
+        .navbar-toggler {
+            padding: 0.15rem 0.4rem !important; /* REDUCED from 0.2rem 0.5rem */
+        }
+        
+        /* Hamburger icon smaller */
+        .navbar-toggler-icon {
+            height: 18px !important; /* REDUCED from 20px to 18px */
+            width: 22px !important; /* REDUCED from 25px to 22px */
+        }
+        
+        /* Menu items */
+        .nav-item {
+            padding: 4px 0 !important; /* REDUCED from 6px to 4px */
+        }
+        
+        /* Menu links */
+        .nav-link {
+            padding: 6px !important; /* REDUCED from 8px to 6px */
+            font-size: 14px !important; /* REDUCED from 15px to 14px */
+        }
+        
+        /* Book Now button */
+        .navbar-nav .nav-item:last-child .nav-link {
+            padding: 6px 12px !important; /* REDUCED from 8px 15px */
+            margin: 2px 8px !important; /* REDUCED from 3px 10px */
+        }
+        
+        /* Keep navbar fine/thin as before */
+        .navbar {
+            background-color: #1a3c6e !important;
+            padding: 0 !important;
+            min-height: 30px !important;
+            max-height: 30px !important;
+        }
+        
+        /* Ensure the logo styling remains the same */
+        
+        
+        /* Enhanced hamburger menu with three stripes */
+        .navbar-toggler {
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 20px !important;
+            border: none !important;
+            outline: none !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+        
+        /* Three-stripe hamburger icon */
+        .navbar-toggler-icon {
+            position: relative !important;
+            height: 14px !important;
+            width: 20px !important;
+            background-image: none !important;
+            background-color: transparent !important;
+            display: inline-block !important;
+        }
+        
+        /* Three distinct lines for hamburger */
+        .navbar-toggler-icon:before,
+        .navbar-toggler-icon:after,
+        .navbar-toggler-icon span {
+            position: absolute !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2px !important; /* Slightly thicker for visibility */
+            background-color: white !important;
+            border-radius: 1px !important;
+            content: '' !important;
+        }
+        
+        .navbar-toggler-icon:before {
+            top: 0 !important;
+        }
+        
+        .navbar-toggler-icon span {
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+        }
+        
+        .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* VERTICAL NAVBAR STYLING */
+        .navbar-collapse {
+            position: fixed !important;
+            top: 30px !important; /* Start right below the navbar */
+            right: 0 !important;
+            width: 200px !important; /* Fixed width for vertical menu */
+            height: auto !important;
+            background-color: rgba(26, 60, 110, 0.95) !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: 1030 !important; /* Rounded only on bottom-left corner */
+            border-radius: 0 0 0 8px !important; /* Rounded only on bottom-left corner */
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.2) !important;
+            transform: translateX(100%) !important; /* Hide off-screen by default */
+            transition: transform 0.3s ease !important; /* Smooth slide-in animation */
+        }
+        
+        /* Show menu when expanded */
+        .navbar-collapse.show {
+            transform: translateX(0) !important; /* Slide in from right */
+        }
+        
+        /* Vertical navigation items */
+        .navbar-nav {
+            width: 100% !important;
+            padding: 5px 0 !important;
+        }
+        
+        .nav-item {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        /* Vertical navigation links */
+        .nav-link {
+            padding: 10px 15px !important;
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.1) !important;
+        }
+        
+        /* Active navigation item */
+        .nav-item.active .nav-link {
+            color: #f8c12c !important;
+            background-color: rgba(255,255,255,0.05) !important;
+        }
+        
+        /* Book Now button in vertical menu */
+        .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 4px !important;
+            font-weight: bold !important;
+            margin: 5px 10px !important;
+            width: calc(100% - 20px) !important;
+            text-align: center !important;
+        }
+        
+        /* Make navbar wider */
+        .navbar {
+            background-color: #1a3c6e !important;
+            padding: 0 !important;
+            min-height: 50px !important; /* INCREASED from 30px to 35px */
+            max-height: 50px !important; /* INCREASED from 30px to 35px */
+            width: 100% !important; /* Ensure full width */
+        }
+        
+        /* Adjust container for wider navbar */
+        .navbar .container {
+            padding: 0 15px !important; /* Added horizontal padding */
+            height: 35px !important; /* Match navbar height */
+        }
+        
+        /* Enhanced hamburger menu styling */
+        .navbar-toggler {
+            padding: 4px !important; /* Added padding for larger click area */
+            margin-right: 5px !important; /* Added right margin */
+            height: 28px !important; /* INCREASED from 20px to 28px */
+            width: 28px !important; /* Explicit width */
+            background-color: transparent !important;
+            border: none !important;
+            cursor: pointer !important; /* Ensure cursor changes to pointer */
+            z-index: 1040 !important; /* Higher z-index */
+        }
+        
+        /* Three-stripe hamburger icon - MORE VISIBLE */
+        .navbar-toggler-icon {
+            position: relative !important;
+            height: 18px !important; /* INCREASED from 14px to 18px */
+            width: 24px !important; /* INCREASED from 20px to 24px */
+            background-image: none !important;
+            background-color: transparent !important;
+            display: inline-block !important;
+        }
+        
+        /* Three distinct lines for hamburger - MORE VISIBLE */
+        .navbar-toggler-icon:before,
+        .navbar-toggler-icon:after,
+        .navbar-toggler-icon span {
+            position: absolute !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2.5px !important; /* INCREASED from 2px to 2.5px */
+            background-color: white !important;
+            border-radius: 1px !important;
+            content: '' !important;
+        }
+        
+        .navbar-toggler-icon:before {
+            top: 0 !important;
+        }
+        
+        .navbar-toggler-icon span {
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+        }
+        
+        .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* VERTICAL NAVBAR STYLING - FIXED VISIBILITY ISSUE */
+        .navbar-collapse {
+            position: fixed !important;
+            top: 35px !important; /* Match navbar height */
+            right: 0 !important;
+            width: 220px !important; /* INCREASED from 200px to 220px */
+            height: auto !important;
+            background-color: rgba(26, 60, 110, 0.98) !important; /* More opaque */
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: 1030 !important;
+            border-radius: 0 0 0 8px !important;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.2) !important;
+            
+            /* IMPORTANT: Changed how we hide/show the menu */
+            display: none !important; /* Hidden by default */
+        }
+        
+        /* Show menu when expanded - FIXED */
+        .navbar-collapse.show {
+            display: block !important; /* Show when .show class is applied */
+        }
+        
+        /* Vertical navigation items */
+        .navbar-nav {
+            width: 100% !important;
+            padding: 5px 0 !important;
+        }
+        
+        .nav-item {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        /* Vertical navigation links */
+        .nav-link {
+            padding: 12px 15px !important; /* INCREASED from 10px to 12px */
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            color: white !important;
+            font-size: 15px !important; /* Slightly larger font */
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.1) !important;
+        }
+        
+        /* Active navigation item */
+        .nav-item.active .nav-link {
+            color: #f8c12c !important;
+            background-color: rgba(255,255,255,0.05) !important;
+        }
+        
+        /* Book Now button in vertical menu */
+        .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 4px !important;
+            font-weight: bold !important;
+            margin: 8px 15px !important; /* INCREASED from 5px 10px */
+            width: calc(100% - 30px) !important;
+            text-align: center !important;
+        }
+        
+        /* Keep existing navbar styling */
+        
+        /* FULL-WIDTH CURTAIN DROPDOWN STYLING */
+        @media (max-width: 991.98px) {
+            /* Dropdown menu as full curtain */
+            .navbar-collapse {
+                position: fixed !important;
+                top: 35px !important; /* Should match navbar height */
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                background-color: #1a3c6e !important;
+                padding: 15px 0 !important;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.2) !important;
+                z-index: 1030 !important;
+                
+                /* Animation effects */
+                transform: translateY(-100%) !important;
+                transition: transform 0.3s ease !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+            }
+            
+            /* Show menu when expanded */
+            .navbar-collapse.show {
+                transform: translateY(0) !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+            
+            /* Center the menu items in the curtain */
+            .navbar-nav {
+                width: 100% !important;
+                text-align: center !important;
+                padding: 10px 0 !important;
+                max-width: 400px !important; /* Limit width for better readability */
+                margin: 0 auto !important; /* Center the nav items */
+            }
+            
+            .nav-item {
+                border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+                padding: 5px 0 !important;
+            }
+            
+            .nav-item:last-child {
+                border-bottom: none !important;
+            }
+            
+            .nav-link {
+                font-size: 18px !important; /* Slightly larger font */
+                padding: 12px 20px !important;
+                display: block !important;
+                text-align: center !important;
+            }
+            
+            /* Book Now button */
+            .navbar-nav .nav-item:last-child .nav-link {
+                margin: 15px auto !important;
+                width: 200px !important; /* Fixed width for button */
+                display: block !important;
+            }
+        }
+        
+        /* DIRECT CURTAIN IMPLEMENTATION - with enhanced specificity */
+        
+        /* Base navbar */
+        body .navbar.navbar-expand-lg {
+            background-color: #1a3c6e !important;
+            position: relative !important;
+            z-index: 1050 !important;
+        }
+        
+        /* Force hamburger to always show (even on large screens) for testing */
+        @media (min-width: 992px) {
+            body .navbar .navbar-toggler {
+                display: block !important;
+            }
+            
+            body .navbar-expand-lg .navbar-collapse {
+                display: none !important;
+            }
+            
+            body .navbar-expand-lg .navbar-collapse.show {
+                display: block !important;
+            }
+        }
+        
+        /* Hamburger button styling */
+        body .navbar .navbar-toggler {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            cursor: pointer !important;
+            z-index: 1060 !important;
+        }
+        
+        /* Hamburger icon */
+        body .navbar .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+        
+        /* CURTAIN DROPDOWN - with fixed positioning */
+        body .navbar .navbar-collapse {
+            display: none !important;
+            position: fixed !important;
+            top: 35px !important; /* Match navbar height */
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            background-color: #1a3c6e !important;
+            z-index: 1040 !important;
+            padding: 20px !important;
+            border-radius: 0 !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Display when active */
+        body .navbar .navbar-collapse.show {
+            display: block !important;
+        }
+        
+        /* Center the menu items */
+        body .navbar .navbar-nav {
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 400px !important;
+            text-align: center !important;
+        }
+        
+        body .navbar .nav-item {
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+            padding: 5px 0 !important;
+        }
+        
+        body .navbar .nav-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        body .navbar .nav-link {
+            color: white !important;
+            font-size: 18px !important;
+            padding: 12px 20px !important;
+            display: block !important;
+            text-align: center !important;
+        }
+        
+        body .navbar .nav-item.active .nav-link {
+            color: #f8c12c !important;
+        }
+        
+        /* Book Now button */
+        body .navbar .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 4px !important;
+            font-weight: bold !important;
+            margin: 15px auto !important;
+            width: 200px !important;
+            text-align: center !important;
+        }
+        
+        /* VERTICAL MENU IMPLEMENTATION - force vertical stacking */
+        
+        /* Base navbar */
+        body .navbar.navbar-expand-lg {
+            background-color: #1a3c6e !important;
+            position: relative !important;
+            z-index: 1050 !important;
+        }
+        
+        /* Hamburger button styling */
+        body .navbar .navbar-toggler {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            cursor: pointer !important;
+            z-index: 1060 !important;
+            display: block !important;
+        }
+        
+        /* CRITICAL: Force navbar-nav to be vertical */
+        body .navbar .navbar-nav {
+            flex-direction: column !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+        }
+        
+        /* CRITICAL: Each nav-item should be full-width and block */
+        body .navbar .nav-item {
+            display: block !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        
+        body .navbar .nav-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        /* CRITICAL: Each nav-link should be block and aligned properly */
+        body .navbar .nav-link {
+            display: block !important;
+            width: 100% !important;
+            color: white !important;
+            font-size: 18px !important;
+            padding: 12px 20px !important;
+            text-align: center !important;
+        }
+        
+        body .navbar .nav-item.active .nav-link {
+            color: #f8c12c !important;
+        }
+        
+        /* Book Now button */
+        body .navbar .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 4px !important;
+            font-weight: bold !important;
+            margin: 15px auto !important;
+            width: 200px !important; /* Fixed width for button */
+            display: block !important;
+        }
+        
+        /* CURTAIN DROPDOWN - with fixed positioning */
+        body .navbar .navbar-collapse {
+            display: none !important;
+            position: fixed !important;
+            top: 35px !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            background-color: #1a3c6e !important;
+            z-index: 1040 !important;
+            padding: 15px 0 30px 0 !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+            
+            /* CRITICAL: Disable flex display */
+            flex-basis: 100% !important;
+            flex-grow: 1 !important;
+            align-items: center !important;
+        }
+        
+        /* Display when active */
+        body .navbar .navbar-collapse.show {
+            display: block !important;
+        }
+        
+        /* Force hamburger to always show (for testing) */
+        @media (min-width: 992px) {
+            body .navbar-expand-lg .navbar-toggler {
+                display: block !important;
+            }
+            
+            body .navbar-expand-lg .navbar-collapse {
+                display: none !important;
+            }
+            
+            body .navbar-expand-lg .navbar-collapse.show {
+                display: block !important;
+            }
+        }
+        
+        /* FIXED HAMBURGER ICON - square with updated color */
+        
+        /* Hamburger button container - SQUARE SHAPE */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 34px !important;
+            height: 34px !important;
+            padding: 0 !important;
+            margin-right: 5px !important;
+            
+            /* Square appearance */
+            background-color: rgba(255, 255, 255, 0.1) !important; /* Semi-transparent background */
+            border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Subtle border */
+            border-radius: 4px !important; /* Slightly rounded corners */
+            
+            /* Focus state */
+            transition: background-color 0.2s !important;
+        }
+        
+        body .navbar .navbar-toggler:hover {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        body .navbar .navbar-toggler:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+        
+        /* Hamburger icon - UPDATED COLOR */
+        body .navbar .navbar-toggler-icon {
+            /* UPDATED: Using custom SVG with new color (#f8c12c - yellow gold) */
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f8c12c' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            width: 22px !important;
+            height: 22px !important;
+        }
+        
+        /* Keep the rest of your curtain dropdown styling */
+        body .navbar .navbar-collapse {
+            display: none !important;
+            position: fixed !important;
+            top: 35px !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            background-color: #1a3c6e !important;
+            z-index: 1040 !important;
+            padding: 15px 0 30px 0 !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Vertical menu items - keep these */
+        body .navbar .navbar-nav {
+            flex-direction: column !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
+        }
+        
+        body .navbar .nav-item {
+            display: block !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        
+        body .navbar .nav-link {
+            display: block !important;
+            width: 100% !important;
+            color: white !important;
+            text-align: center !important;
+        }
+        
+        /* REVISED HAMBURGER ICON - bigger square, dimmer lines */
+        
+        /* Hamburger button container - BIGGER SQUARE */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 38px !important; /* INCREASED from 34px to 38px */
+            height: 38px !important; /* INCREASED from 34px to 38px */
+            padding: 0 !important;
+            margin-right: 5px !important;
+            
+            /* Square appearance */
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 4px !important;
+            
+            /* Center vertically in navbar */
+            position: relative !important;
+            top: 0px !important; /* Adjust if needed to center vertically */
+            
+            transition: background-color 0.2s !important;
+        }
+        
+        body .navbar .navbar-toggler:hover {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        /* Hamburger icon - DIMMER WHITE LINES (not yellow) */
+        body .navbar .navbar-toggler-icon {
+            /* UPDATED: Using dimmer white lines (70% opacity) */
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            width: 24px !important; /* INCREASED from 22px to 24px */
+            height: 24px !important; /* INCREASED from 22px to 24px */
+        }
+        
+        /* SIMPLIFIED HAMBURGER - EXACTLY 3 LINES */
+        
+        /* Hamburger button container */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 38px !important;
+            height: 38px !important;
+            padding: 0 !important;
+            margin-right: 5px !important;
+            
+            /* Square appearance */
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 4px !important;
+            
+            /* Remove any extra styling */
+            overflow: hidden !important;
+        }
+        
+        /* CLEAN 3-LINE HAMBURGER ICON */
+        body .navbar .navbar-toggler-icon {
+            /* Basic 3-line hamburger with no extras */
+            background-image: none !important; /* Remove default SVG */
+            position: relative !important;
+            width: 22px !important;
+            height: 16px !important; /* Height for 3 lines with gaps */
+        }
+        
+        /* Create exactly 3 lines with CSS */
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: rgba(255, 255, 255, 0.7) !important;
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important; /* First line at top */
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important; /* Third line at bottom */
+        }
+        
+        /* Middle line (using pseudo-element) */
+        body .navbar .navbar-toggler-icon {
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important; 
+        }
+        
+        /* Add middle line */
+        body .navbar .navbar-toggler-icon:before {
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.7) !important; /* Creates middle line */
+        }
+        
+        /* CURTAIN DROPDOWN - ALIGNED WITH EDGE OF NAVBAR */
+        body .navbar .navbar-collapse {
+            display: none !important;
+            position: fixed !important;
+            top: 35px !important; /* EXACT match to navbar height */
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            background-color: #1a3c6e !important;
+            z-index: 1040 !important;
+            padding: 15px 0 30px 0 !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+            
+            /* Remove rounded corners on top edge */
+            border-radius: 0 !important;
+            
+            /* Add subtle animation */
+            transform: translateY(0) !important;
+            transition: transform 0.3s ease !important;
+        }
+        
+        /* Ensure the dropdown appears exactly at the edge */
+        body .navbar {
+            border-bottom: none !important; /* Remove any borders */
+            box-shadow: none !important; /* Remove shadows that might create gaps */
+        }
+        
+        /* Display when active - no transform needed */
+        body .navbar .navbar-collapse.show {
+            display: block !important;
+        }
+        
+        /* FIXED CURTAIN DROPDOWN - ensuring it doesn't overlap the logo */
+        
+        /* First, let's ensure the navbar has a definite height */
+        body .navbar {
+            min-height: 45px !important; /* Increased to accommodate logo */
+            height: 45px !important; /* Fixed height */
+            position: relative !important;
+            z-index: 1050 !important;
+            padding: 0 !important;
+        }
+        
+        /* Make sure the logo stays within navbar bounds */
+        body .navbar .navbar-brand {
+            max-height: 45px !important;
+            line-height: 45px !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        /* FIXED: The curtain dropdown now appears BELOW the navbar */
+        body .navbar .navbar-collapse {
+            display: none !important;
+            position: fixed !important;
+            top: 45px !important; /* INCREASED from 35px to 45px to match navbar height */
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            background-color: #1a3c6e !important;
+            z-index: 1040 !important;
+            padding: 15px 0 30px 0 !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+            border-radius: 0 !important;
+            
+            /* Ensure clean connection with navbar */
+            margin-top: 0 !important;
+            border-top: none !important;
+        }
+        
+        /* Ensure display when active */
+        body .navbar .navbar-collapse.show {
+            display: block !important;
+        }
+        
+        /* Keep the hamburger icon styling with 3 lines */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 38px !important;
+            height: 38px !important;
+            padding: 0 !important;
+            margin-right: 5px !important;
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 4px !important;
+        }
+        
+        /* 3-line hamburger icon */
+        body .navbar .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative !important;
+            width: 22px !important;
+            height: 16px !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: rgba(255, 255, 255, 0.7) !important;
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important;
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.7) !important; /* Middle line */
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* HAMBURGER ICON - WIDER HORIZONTALLY */
+        
+        /* Hamburger button container - WIDER SQUARE */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 48px !important; /* INCREASED WIDTH from 38px to 48px (wider horizontally) */
+            height: 38px !important; /* Height remains the same */
+            padding: 0 !important;
+            margin-right: 5px !important;
+            
+            /* === CHANGE SQUARE BACKGROUND COLOR HERE === */
+            background-color: rgba(255, 255, 255, 0.1) !important; /* Square background color */
+            
+            /* === CHANGE SQUARE BORDER COLOR HERE === */
+            border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Square border color */
+            
+            border-radius: 4px !important;
+        }
+        
+        /* Hover effect for the square */
+        body .navbar .navbar-toggler:hover {
+            /* === CHANGE SQUARE HOVER COLOR HERE === */
+            background-color: rgba(255, 255, 255, 0.2) !important; /* Square hover background color */
+        }
+        
+        /* 3-line hamburger icon */
+        body .navbar .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative !important;
+            width: 28px !important; /* INCREASED from 22px to 28px to match wider container */
+            height: 16px !important;
+        }
+        
+        /* Hamburger lines styling */
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            
+            /* === CHANGE HAMBURGER LINES COLOR HERE === */
+            background-color: rgba(255, 255, 255, 0.7) !important; /* Hamburger lines color */
+            
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important;
+            /* === CHANGE MIDDLE LINE COLOR HERE (MUST MATCH LINES COLOR) === */
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.7) !important; /* Middle line color */
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* CLEAN HAMBURGER ICON - NO OVERLAY OR HOVER EFFECTS */
+        
+        /* Hamburger button container - CLEAN SQUARE */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 48px !important; /* Width remains wider */
+            height: 38px !important; /* Height remains the same */
+            padding: 0 !important;
+            margin-right: 5px !important;
+            
+            /* REMOVED OVERLAY - now fully transparent background */
+            background-color: transparent !important;
+            
+            /* Simple border for definition */
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            
+            border-radius: 4px !important;
+            
+            /* REMOVED transitions and animations */
+            transition: none !important;
+        }
+        
+        /* REMOVED hover effect completely */
+        body .navbar .navbar-toggler:hover {
+            background-color: transparent !important; /* No change on hover */
+        }
+        
+        /* Removed any focus effects */
+        body .navbar .navbar-toggler:focus {
+            box-shadow: none !important;
+            outline: none !important;
+            background-color: transparent !important;
+        }
+        
+        /* 3-line hamburger icon - keeping the same */
+        body .navbar .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative !important;
+            width: 28px !important;
+            height: 16px !important;
+        }
+        
+        /* Hamburger lines styling - keeping the same */
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: rgba(255, 255, 255, 0.7) !important;
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important;
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.7) !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* DIMMER HAMBURGER ICON - REDUCED BRIGHTNESS */
+        
+        /* Hamburger button container with dimmer border */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 48px !important;
+            height: 38px !important;
+            padding: 0 !important;
+            margin-right: 5px !important;
+            
+            background-color: transparent !important;
+            
+            /* DIMMER BORDER - reduced from 0.3 to 0.15 opacity */
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            
+            border-radius: 4px !important;
+            transition: none !important;
+        }
+        
+        /* No hover effect */
+        body .navbar .navbar-toggler:hover {
+            background-color: transparent !important;
+        }
+        
+        /* Clean focus state */
+        body .navbar .navbar-toggler:focus {
+            box-shadow: none !important;
+            outline: none !important;
+            background-color: transparent !important;
+        }
+        
+        /* 3-line hamburger icon */
+        body .navbar .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative !important;
+            width: 28px !important;
+            height: 16px !important;
+        }
+        
+        /* DIMMER hamburger lines */
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            
+            /* DIMMER LINES - reduced from 0.7 to 0.4 opacity */
+            background-color: rgba(255, 255, 255, 0.4) !important;
+            
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important;
+            
+            /* DIMMER MIDDLE LINE - reduced from 0.7 to 0.4 opacity */
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.4) !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* BRIGHTER TEXT & WIDER CURTAIN */
+        
+        /* Keep hamburger styling the same */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 48px !important;
+            height: 38px !important;
+            padding: 0 !important;
+            margin-right: 5px !important;
+            background-color: transparent !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 4px !important;
+        }
+        
+        /* Hamburger lines remain the same */
+        body .navbar .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative !important;
+            width: 28px !important;
+            height: 16px !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: rgba(255, 255, 255, 0.4) !important;
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important;
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.4) !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* WIDER CURTAIN DROPDOWN */
+        body .navbar .navbar-collapse {
+            display: none !important;
+            position: fixed !important;
+            top: 45px !important; /* Match navbar height */
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important; /* Full width */
+            padding: 25px 0 40px 0 !important; /* MORE vertical padding */
+            background-color: #1a3c6e !important;
+            z-index: 1040 !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* BRIGHTER, PURE WHITE TEXT */
+        body .navbar .navbar-collapse .nav-link {
+            color: #FFFFFF !important; /* Pure white - was previously rgba(255,255,255,0.7) */
+            font-size: 20px !important; /* LARGER text */
+            padding: 15px 20px !important; /* MORE padding */
+            font-weight: 400 !important; /* Medium weight */
+            letter-spacing: 0.5px !important; /* Slight letter spacing */
+            text-shadow: none !important; /* Remove any text shadows */
+        }
+        
+        /* Keep the Active item styling */
+        body .navbar .navbar-collapse .nav-item.active .nav-link {
+            color: #f8c12c !important; /* Keep gold color for active item */
+            font-weight: 500 !important; /* Slightly bolder */
+        }
+        
+        /* Wider nav items */
+        body .navbar .navbar-collapse .navbar-nav {
+            width: 100% !important;
+            max-width: 100% !important; /* Allow full width */
+        }
+        
+        body .navbar .navbar-collapse .nav-item {
+            padding: 0 !important;
+            margin: 0 auto !important;
+            width: 80% !important; /* WIDER items */
+            max-width: 600px !important; /* Maximum width */
+        }
+        
+        /* Bigger Book Now button */
+        body .navbar .navbar-collapse .navbar-nav .nav-item:last-child .nav-link {
+            width: 250px !important; /* WIDER button */
+            margin: 20px auto !important; /* MORE margin */
+            padding: 12px 20px !important; /* MORE padding */
+            font-size: 18px !important; /* Larger font */
+        }
+        
+        /* FORCE WHITE TEXT FOR ALL MENU OPTIONS */
+        
+        /* Direct targeting of all nav links */
+        body .navbar .navbar-collapse .nav-link,
+        body .navbar .navbar-collapse .nav-item .nav-link,
+        body .navbar .navbar-collapse .navbar-nav .nav-item .nav-link,
+        body .navbar-nav .nav-link,
+        body .navbar-collapse a,
+        body .navbar .navbar-collapse a,
+        body #navbarNav .nav-link,
+        body .navbar .navbar-nav li a {
+            color: #FFFFFF !important; /* Pure white */
+            font-weight: 400 !important;
+            text-decoration: none !important;
+        }
+        
+        /* Target any spans inside links */
+        body .navbar .navbar-collapse .nav-link span,
+        body .navbar .navbar-collapse a span,
+        body .navbar-collapse a span {
+            color: #FFFFFF !important; /* Pure white */
+        }
+        
+        /* Keep active item gold */
+        body .navbar .navbar-collapse .nav-item.active .nav-link,
+        body .navbar .navbar-collapse .nav-item.active > a,
+        body .navbar-nav .nav-item.active .nav-link,
+        body #navbarNav .nav-item.active .nav-link,
+        body .navbar .navbar-nav li.active a {
+            color: #f8c12c !important; /* Gold for active */
+        }
+        
+        /* Book Now button keeps its color */
+        body .navbar .navbar-collapse .navbar-nav .nav-item:last-child .nav-link,
+        body .navbar-nav .nav-item:last-child .nav-link,
+        body .navbar .navbar-nav li:last-child a {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important; /* Blue text on gold button */
+        }
+        
+        /* Reset any potential inherited colors */
+        body .navbar .navbar-collapse {
+            color: #FFFFFF !important; /* Set default text color */
+        }
+        
+        /* Debug rule - find any elements with non-white color */
+        /*
+        [style*="color"] {
+            color: red !important;
+        }
+        */
+        
+        /* STANDARDIZED DROPDOWN CURTAIN - consistent with standard patterns */
+        
+        /* Keep the hamburger styling */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 48px !important;
+            height: 38px !important;
+            padding: 0 !important;
+            margin-right: 5px !important;
+            background-color: transparent !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 4px !important;
+        }
+        
+        /* Hamburger icon remains the same */
+        body .navbar .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative !important;
+            width: 28px !important;
+            height: 16px !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: rgba(255, 255, 255, 0.4) !important;
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important;
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.4) !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* STANDARDIZED DROPDOWN CURTAIN */
+        body .navbar .navbar-collapse {
+            display: none !important;
+            position: fixed !important;
+            top: 45px !important; /* Match navbar height */
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            background-color: #1a3c6e !important; /* Match navbar color */
+            z-index: 1040 !important;
+            
+            /* STANDARD PADDING - more consistent */
+            padding: 10px 0 20px 0 !important;
+            
+            /* STANDARD SHADOW */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.175) !important;
+            
+            /* STANDARD TRANSITION */
+            transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+        }
+        
+        /* Keep text white but use standard font sizes */
+        body .navbar .navbar-collapse .nav-link,
+        body .navbar .navbar-nav .nav-item .nav-link {
+            color: #FFFFFF !important;
+            font-weight: normal !important;
+            font-size: 16px !important; /* STANDARD font size */
+            letter-spacing: normal !important;
+            
+            /* STANDARD PADDING */
+            padding: 10px 15px !important;
+            
+            /* STANDARD TRANSITION */
+            transition: background-color 0.2s ease !important;
+        }
+        
+        /* Make Gallery white */
+        body .navbar .navbar-nav a[href*="gallery"],
+        body .navbar .navbar-nav a[href*="Gallery"] {
+            color: #FFFFFF !important;
+        }
+        
+        /* STANDARD MENU ITEM SPACING */
+        body .navbar .navbar-collapse .nav-item {
+            padding: 0 !important;
+            margin: 0 !important; /* STANDARD - no extra margins */
+            width: 100% !important; /* Full width for consistency */
+            max-width: none !important;
+            
+            /* STANDARD SEPARATOR - thin line */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* STANDARD ITEM HOVER */
+        body .navbar .navbar-collapse .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+        
+        /* Keep Book Now button styling */
+        body .navbar .navbar-collapse .navbar-nav .nav-item:last-child {
+            border-bottom: none !important;
+            margin: 10px auto !important;
+            width: auto !important;
+            max-width: 250px !important;
+        }
+        
+        body .navbar .navbar-collapse .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 4px !important;
+            font-weight: 600 !important;
+            padding: 8px 16px !important;
+            text-align: center !important;
+        }
+        
+        /* FINAL HAMBURGER REFINEMENTS - 100% CONSISTENCY */
+        
+        /* Ensure the navbar structure is identical */
+        body .navbar {
+            background-color: #1a3c6e !important;
+            height: 50px !important;
+            min-height: 50px !important;
+            padding: 0 !important;
+        }
+        
+        body .navbar .container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            height: 100% !important;
+            padding: 0 15px !important;
+        }
+        
+        /* HAMBURGER POSITIONING - EXACT MATCH */
+        body .navbar .navbar-toggler {
+            position: relative !important;
+            right: 0 !important; /* Align to right edge of container */
+            margin: 0 !important; /* NO margins */
+            padding: 0 !important; /* NO padding */
+            
+            /* Dimensions */
+            width: 44px !important; /* PRECISE width to match others */
+            height: 38px !important;
+            
+            /* Appearance */
+            background-color: transparent !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 4px !important;
+            
+            /* Flex settings */
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* HAMBURGER LINES COLOR - EXACT MATCH */
+        body .navbar .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative !important;
+            width: 26px !important; /* Adjusted for consistency */
+            height: 16px !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            
+            /* EXACT COLOR MATCH - rgba with precise opacity */
+            background-color: rgba(44, 152, 215, 0.35) !important; /* More precise color match */
+            
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important;
+            /* Middle line color EXACT MATCH */
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.35) !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* Ensure consistent coloring on hover/focus */
+        body .navbar .navbar-toggler:hover .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler:hover .navbar-toggler-icon:after,
+        body .navbar .navbar-toggler:focus .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler:focus .navbar-toggler-icon:after {
+            background-color: rgba(255, 255, 255, 0.35) !important; /* Maintain consistent color */
+        }
+        
+        body .navbar .navbar-toggler:hover .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler:focus .navbar-toggler-icon:before {
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.35) !important; /* Maintain consistent color */
+        }
+        
+        /* THREE IDENTICAL LINES FOR HAMBURGER */
+        
+        /* Hamburger button container */
+        body .navbar .navbar-toggler {
+            position: relative !important;
+            right: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 44px !important;
+            height: 38px !important;
+            background-color: transparent !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 4px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* NEW APPROACH: THREE IDENTICAL LINES - no box-shadow */
+        body .navbar .navbar-toggler-icon {
+            position: relative !important;
+            width: 26px !important;
+            height: 18px !important; /* Slightly increased for 3 even lines */
+            background-image: none !important;
+        }
+        
+        /* Create THREE separate lines with identical styling */
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after,
+        body .navbar .navbar-toggler-icon span {
+            content: '' !important;
+            position: absolute !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: rgba(255, 255, 255, 0.35) !important;
+            transition: none !important;
+        }
+        
+        /* Top line */
+        body .navbar .navbar-toggler-icon:before {
+            content: '' !important;
+            top: 0 !important;
+            /* NO box-shadow */
+        }
+        
+        /* Middle line - NEW dedicated element */
+        body .navbar .navbar-toggler-icon span {
+            top: 8px !important; /* Precisely centered */
+        }
+        
+        /* Bottom line */
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            bottom: 0 !important;
+        }
+        
+        /* Keep the hamburger button container styling */
+        body .navbar .navbar-toggler {
+            position: relative !important;
+            right: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 44px !important;
+            height: 38px !important;
+            background-color: transparent !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 4px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* REMOVE ALL CUSTOM STYLING FOR HAMBURGER ICON */
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after,
+        body .navbar .navbar-toggler-icon > div,
+        body .navbar .navbar-toggler-icon > span {
+            display: none !important; /* Hide any custom elements */
+        }
+        
+        /* Reset the navbar-toggler-icon to default Bootstrap behavior */
+        body .navbar .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            width: 1.5em !important;
+            height: 1.5em !important;
+            vertical-align: middle !important;
+            content: "" !important;
+            background-size: 100% 100% !important;
+            opacity: 1 !important; /* Match the inline style from index */
+            position: static !important; /* Reset any custom positioning */
+        }
+        
+        /* Simple fix for hamburger visibility */
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+        
+        /* EXACT DIMENSIONS AS SPECIFIED */
+        
+        /* Button: 55.6px × 39.6px */
+        .navbar-toggler {
+            width: 55.6px !important;
+            height: 39.6px !important;
+            padding: 0 !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        /* Icon span: 30px × 30px */
+        .navbar-toggler-icon {
+            width: 30px !important;
+            height: 30px !important;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+    </style>
+
+    <!-- Add these script tags in the <head> section if not already present -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ADD THIS IMMEDIATELY AFTER YOUR CLOSING </head> TAG -->
+    <script>
+        /* Preload function to ensure DOM is manipulated before painting */
+        (function() {
+            // Create a new style element
+            var style = document.createElement('style');
+            style.type = 'text/css';
+            style.innerHTML = `
+                .navbar-collapse.show {
+                    display: block !important;
+                }
+                .navbar-toggler {
+                    display: block !important;
+                }
+            `;
+            
+            // Append style to head
+            document.head.appendChild(style);
+        })();
+    </script>
+
+    <!-- ADD THIS IMMEDIATELY BEFORE YOUR CLOSING </body> TAG -->
+    <script>
+        // Alternative no-dependency toggle function
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure toggler and collapse elements exist
+            var toggler = document.querySelector('.navbar-toggler');
+            var collapse = document.querySelector('.navbar-collapse');
+            
+            if (toggler && collapse) {
+                // Direct click handler without dependencies
+                toggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (collapse.classList.contains('show')) {
+                        collapse.classList.remove('show');
+                        console.log('Menu closed');
+                    } else {
+                        collapse.classList.add('show');
+                        console.log('Menu opened');
+                    }
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (collapse.classList.contains('show') && 
+                        !collapse.contains(e.target) && 
+                        !toggler.contains(e.target)) {
+                        
+                        collapse.classList.remove('show');
+                    }
+                });
+                
+                console.log('Hamburger menu initialized successfully');
+            } else {
+                console.error('Hamburger menu elements not found');
+            }
+            
+            // Additional: check if Bootstrap's collapse is working
+            if (typeof $().collapse === 'function') {
+                console.log('Bootstrap collapse function available');
+                
+                // Bootstrap method (backup)
+                $('.navbar-toggler').off('click').on('click', function() {
+                    $('.navbar-collapse').collapse('toggle');
+                    console.log('Bootstrap toggle triggered');
+                });
+            }
+        });
+        
+        // Log elements to console for debugging
+        window.addEventListener('load', function() {
+            console.log('Toggler:', document.querySelector('.navbar-toggler'));
+            console.log('Collapse:', document.querySelector('.navbar-collapse'));
+        });
+    </script>
+
+    <!-- Add this script to force white text via JavaScript as a backup -->
+    <script>
+        $(document).ready(function() {
+            // Force white text color on all nav links except active and last item
+            function forceWhiteText() {
+                $('.navbar-collapse .nav-link').not('.nav-item.active .nav-link').not('.nav-item:last-child .nav-link').css('color', '#FFFFFF');
+                
+                // Log colors for debugging
+                $('.navbar-collapse .nav-link').each(function() {
+                    console.log("Link text: " + $(this).text() + " | Color: " + $(this).css('color'));
+                });
+            }
+            
+            // Apply immediately and after dropdown is shown
+            forceWhiteText();
+            $('.navbar-toggler').on('click', function() {
+                setTimeout(forceWhiteText, 100);
+            });
+        });
+    </script>
+
+    <!-- Script to ensure EXACT consistency of hamburger position and color -->
+    <script>
+        $(document).ready(function() {
+            // Function to force exact hamburger position
+            function alignHamburger() {
+                // Remove any conflicting styles that might affect position
+                $('.navbar-toggler').attr('style', '');
+                
+                // Apply the exact positioning
+                $('.navbar-toggler').css({
+                    'position': 'relative',
+                    'right': '0',
+                    'margin': '0',
+                    'padding': '0',
+                    'width': '44px',
+                    'height': '38px',
+                    'display': 'flex',
+                    'align-items': 'center',
+                    'justify-content': 'center',
+                    'background-color': 'transparent',
+                    'border': '1px solid rgba(255, 255, 255, 0.15)',
+                    'border-radius': '4px'
+                });
+                
+                // Force exact colors for lines
+                $('.navbar-toggler-icon').css({
+                    'width': '26px',
+                    'height': '16px'
+                });
+                
+                // Apply exact color to all three lines
+                var lineColor = 'rgba(255, 255, 255, 0.35)';
+                
+                // Remove and recreate lines with exact styling
+                $('.navbar-toggler-icon').empty();
+                $('.navbar-toggler-icon').append('<span style="position:absolute;width:100%;height:2px;background-color:' + lineColor + ';top:0;left:0;box-shadow:0 7px 0 ' + lineColor + ';"></span>');
+                $('.navbar-toggler-icon').append('<span style="position:absolute;width:100%;height:2px;background-color:' + lineColor + ';bottom:0;left:0;"></span>');
+                
+                console.log("Hamburger alignment and color forced to exact match");
+            }
+            
+            // Run on page load with slight delay to override any other scripts
+            setTimeout(alignHamburger, 100);
+            
+            // Run again if window is resized
+            $(window).resize(function() {
+                setTimeout(alignHamburger, 100);
+            });
+        });
+    </script>
+
+    <!-- Script to ensure all three lines are identical -->
+    <script>
+        $(document).ready(function() {
+            // Function to create three identical lines
+            function createThreeIdenticalLines() {
+                // Remove any existing content
+                $('.navbar-toggler-icon').empty();
+                
+                // Create a middle line element
+                $('.navbar-toggler-icon').append('<span></span>');
+                
+                // Apply consistent styling to all three lines
+                var lineStyle = {
+                    'position': 'absolute',
+                    'left': '0',
+                    'width': '100%',
+                    'height': '2px',
+                    'background-color': 'rgba(255, 255, 255, 0.35)',
+                    'border-radius': '1px'
+                };
+                
+                // Style the pseudo-elements and the middle span
+                $('.navbar-toggler-icon').css({
+                    'position': 'relative',
+                    'width': '26px',
+                    'height': '18px',
+                    'background-image': 'none'
+                });
+                
+                // Create actual elements for all three lines for maximum consistency
+                $('.navbar-toggler-icon').html(
+                    '<span style="position:absolute; top:0; left:0; width:100%; height:2px; background-color:rgba(255, 255, 255, 0.35);"></span>' +
+                    '<span style="position:absolute; top:0px; left:0; width:100%; height:2px; background-color:rgba(255, 255, 255, 0.35);"></span>' +
+                    '<span style="position:absolute; bottom:0; left:0; width:100%; height:2px; background-color:rgba(255, 255, 255, 0.35);"></span>'
+                );
+                
+                console.log("Created three identical hamburger lines");
+            }
+            
+            // Apply immediately and after any potential DOM changes
+            createThreeIdenticalLines();
+            setTimeout(createThreeIdenticalLines, 200);
+            
+            // Reapply when toggler is clicked
+            $('.navbar-toggler').on('click', function() {
+                createThreeIdenticalLines();
+            });
+        });
+    </script>
+
+    <!-- MATCHING INDEX FILE HAMBURGER EXACTLY -->
+
+    <script>
+        $(document).ready(function() {
+            // Replace the hamburger icon with the exact version from index
+            function replaceWithIndexVersion() {
+                // Remove any custom created elements
+                $('.navbar-toggler-icon').empty();
+                
+                // Remove any custom classes or attributes
+                $('.navbar-toggler-icon').removeAttr('style');
+                
+                // Add the exact inline style from the index version
+                $('.navbar-toggler-icon').attr('style', 'opacity: 1;');
+                
+                console.log("Hamburger icon matched to index file version");
+            }
+            
+            // Execute on page load
+            replaceWithIndexVersion();
+            
+            // Execute after a delay to ensure it applies after other scripts
+            setTimeout(replaceWithIndexVersion, 200);
+        });
+    </script>
+</head>
+<body>
+    <!-- COMPLETE NAVBAR SOLUTION - EXACTLY MATCHING OTHER PAGES -->
+
+    <!-- Ensure the navbar HTML structure matches precisely -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Your Brand</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="photo-gallery.html">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Accommodations</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Activities</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Dining</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="booking.html">Book Now</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <style>
+        /* MASTER NAVBAR STYLING - 100% CONSISTENT WITH INDEX AND BOOKING */
+        
+        /* Base navbar structure */
+        body .navbar {
+            background-color: #1a3c6e !important;
+            height: 50px !important; /* FIXED HEIGHT - ensure this matches other pages */
+            min-height: 50px !important;
+            padding: 0 !important;
+            position: relative !important;
+            z-index: 1050 !important;
+        }
+        
+        /* Container alignment */
+        body .navbar .container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            height: 100% !important;
+            padding: 0 15px !important;
+        }
+        
+        /* LOGO POSITIONING - exactly matching other pages */
+        body .navbar .navbar-brand {
+            color: #FFFFFF !important;
+            font-size: 24px !important;
+            font-weight: normal !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        /* If the logo is an image */
+        body .navbar .navbar-brand img {
+            max-height: 35px !important; /* Standard logo height */
+        }
+        
+        /* Hamburger button - identical to other pages */
+        body .navbar .navbar-toggler {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 48px !important;
+            height: 38px !important;
+            padding: 0 !important;
+            margin-right: 0 !important; /* CRITICAL: No extra margin */
+            background-color: transparent !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 4px !important;
+        }
+        
+        /* Hamburger lines */
+        body .navbar .navbar-toggler-icon {
+            background-image: none !important;
+            position: relative !important;
+            width: 28px !important;
+            height: 16px !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before,
+        body .navbar .navbar-toggler-icon:after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            background-color: rgba(255, 255, 255, 0.4) !important;
+            left: 0 !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:before {
+            top: 0 !important;
+            box-shadow: 0 7px 0 rgba(255, 255, 255, 0.4) !important;
+        }
+        
+        body .navbar .navbar-toggler-icon:after {
+            bottom: 0 !important;
+        }
+        
+        /* CURTAIN DROPDOWN - exact match to other pages */
+        body .navbar .navbar-collapse {
+            display: none !important;
+            position: fixed !important;
+            top: 50px !important; /* MATCH navbar height exactly */
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            background-color: #1a3c6e !important;
+            z-index: 1040 !important;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.175) !important;
+            padding: 15px 0 !important;
+            margin: 0 !important;
+            border: none !important;
+        }
+        
+        /* Menu item spacing - identical to other pages */
+        body .navbar .navbar-collapse .navbar-nav {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        body .navbar .navbar-collapse .nav-item {
+            display: block !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            height: 50px !important;
+        }
+        
+        body .navbar .navbar-collapse .nav-link {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 100% !important;
+            width: 100% !important;
+            padding: 0 15px !important;
+            margin: 0 !important;
+            color: #FFFFFF !important;
+            font-size: 16px !important;
+            font-weight: normal !important;
+        }
+        
+        /* Book Now button - identical to other pages */
+        body .navbar .navbar-collapse .nav-item:last-child {
+            border-bottom: none !important;
+            height: 80px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        body .navbar .navbar-collapse .nav-item:last-child .nav-link {
+            height: 40px !important;
+            max-width: 250px !important;
+            background-color: #f8c12c !important;
+            color: #1a3c6e !important;
+            border-radius: 4px !important;
+            font-weight: 600 !important;
+        }
+    </style>
+
+    <!-- Script to ensure EXACT consistency across all pages -->
+    <script>
+        $(document).ready(function() {
+            // 1. Copy any dynamic styles from other pages
+            var commonStyles = `
+                .navbar { height: 50px !important; }
+                .navbar-collapse { top: 50px !important; }
+            `;
+            $('head').append('<style id="common-navbar-styles">' + commonStyles + '</style>');
+            
+            // 2. Fix any structural differences
+            $('.navbar-toggler').attr('data-toggle', 'collapse');
+            $('.navbar-toggler').attr('data-target', '#navbarNav');
+            
+            // 3. Force identical element spacing
+            function standardizeNavbar() {
+                // Set exact height for navbar and dropdown position
+                $('.navbar').css('height', '50px');
+                $('.navbar-collapse').css('top', '50px');
+                
+                // Force the dropdown to display properly
+                $('.navbar-collapse').removeClass('show').css('display', 'none');
+                
+                // Standardize all menu items
+                $('.navbar-collapse .nav-item').not(':last-child').css('height', '50px');
+                $('.navbar-collapse .nav-item:last-child').css('height', '80px');
+                
+                // Ensure Gallery is white
+                $('a.nav-link[href*="gallery"], a.nav-link[href*="Gallery"]').css('color', '#FFFFFF');
+            }
+            
+            // Run on load and on toggle
+            standardizeNavbar();
+            $('.navbar-toggler').on('click', function() {
+                $('.navbar-collapse').toggleClass('show');
+                setTimeout(standardizeNavbar, 10);
+            });
+        });
+    </script>
+
+    <!-- Video Header -->
+    <header class="video-header">
+        <div class="video-overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="background.mp4" type="video/mp4">
+            <!-- You can replace the source with your own video -->
+        </video>
+        <div class="container h-100">
+            <div class="video-content">
+                <h1>Our Fishing Adventures</h1>
+                <p>Experience the thrill of deep sea fishing in the beautiful waters of Aruba</p>
+                <a href="#gallery" class="btn btn-primary btn-lg">View Gallery</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <div id="gallery" class="section">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <p class="text-center mb-5">Check out some of our amazing fishing adventures and catches!</p>
+            
+            <!-- Carousel -->
+            <div class="gallery-carousel">
+                <div id="galleryCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#galleryCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="1"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="2"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="3"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="4"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="5"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="6"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="7"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="8"></li>
+                        <li data-target="#galleryCarousel" data-slide-to="9"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="photo-gallery.jpg" class="d-block w-100" alt="Amazing Catch">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Amazing Catch</h5>
+                                <p>A beautiful day out on the water with an amazing catch!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Aruba's only sunset.jpg" class="d-block w-100" alt="Sunset Fishing">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Sunset Fishing</h5>
+                                <p>Aruba's only sunset fishing trip.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imageshookeryacht.jpg" class="d-block w-100" alt="Open Waters">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Open Waters</h5>
+                                <p>Exploring the beautiful open waters of Aruba.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="deepsea.jpg" class="d-block w-100" alt="Deep Sea Adventure">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Deep Sea Trolling</h5>
+                                <p>Heading out for a day of deep sea fishing.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="amazingcatch2.jpg" class="d-block w-100" alt="Trophy Catch">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Trophy Catch</h5>
+                                <p>One of our guests with their impressive catch!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="marlin.jpg" class="d-block w-100" alt="The Hooker">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>The Wicked Hooker</h5>
+                                <p>Catch and release a Marlin</p>
+                            </div>
+                        </div>
+                        <!-- New carousel items -->
+                        <div class="carousel-item">
+                            <img src="amazingcatch.jpg" class="d-block w-100" alt="Morning Fishing">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Morning Fishing</h5>
+                                <p>Early morning fishing trip with calm waters.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Captainowner.jpg" class="d-block w-100" alt="Fresh Catch">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Fresh Catch</h5>
+                                <p>Nothing beats the excitement of a fresh catch!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="beachview.jpg" class="d-block w-100" alt="Beach View">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Beach View</h5>
+                                <p>The stunning beaches of Aruba.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="Thehookermerch.jpg" class="d-block w-100" alt="Big Game Fish">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>The Hooker Merch</h5>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#galleryCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#galleryCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                
+                <!-- Thumbnails -->
+                <div class="thumbnail-container">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail active" data-slide-to="0">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="1">
+                    <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="2">
+                    <img src="https://images.unsplash.com/photo-1564572395796-8c13b5fce3dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="3">
+                    <img src="https://images.unsplash.com/photo-1545816250-e12bedba42ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="4">
+                    <img src="https://images.unsplash.com/photo-1500514966906-fe367368a9d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="5">
+                    <!-- New thumbnails -->
+                    <img src="https://images.unsplash.com/photo-1533109721025-d1ae7ee7c1e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="6">
+                    <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="7">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="8">
+                    <img src="https://images.unsplash.com/photo-1587790311640-50b019663f01?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" class="thumbnail" data-slide-to="9">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video Gallery Section -->
+    <div class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Video Gallery</h2>
+            <p class="text-center mb-5">Experience the excitement of our fishing trips through these videos</p>
+            
+            <!-- Video Carousel -->
+            <div class="video-carousel">
+                <div id="videoCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-target="#videoCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#videoCarousel" data-slide-to="1"></li>
+                        <li data-target="#videoCarousel" data-slide-to="2"></li>
+                        <li data-target="#videoCarousel" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="video-container">
+                                <iframe src="The Hooker charters Aruba.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Bottom fishing Fishing Adventure</h5>
+                                <p>Join us for an exciting day of Bottom fishing in the beautiful waters of Aruba.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="video-container">
+                                <iframe src="deepfishing.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Catching a Wahoo</h5>
+                                <p>Watch as our guests reel in a beautiful Wahoo during a half-day fishing trip.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="video-container">
+                                <iframe src="background.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Sunset Fishing Tour</h5>
+                                <p>Experience the beauty of an Aruban sunset while enjoying a relaxing fishing trip.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="video-container">
+                                <iframe src="release sailfish The Wicked Hooker Aruba 🇦🇼 ♥️.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>The Wicked Hooker Tour</h5>
+                                <p>Take a tour of our 44ft Bertram yacht and see all the amenities it offers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#videoCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#videoCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                
+                <!-- Video Thumbnails -->
+                <div class="video-thumbnail-container">
+                    <div class="video-thumbnail active" data-slide-to="0">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Video Thumbnail">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-thumbnail" data-slide-to="1">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Video Thumbnail">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-thumbnail" data-slide-to="2">
+                        <img src="https://img.youtube/X_DuxzRL2ys?si=iQeunVABeGr80_fJ/mqdefault.jpg" alt="Video Thumbnail">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-thumbnail" data-slide-to="3">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Video Thumbnail">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="section bg-light">
+        <div class="container text-center">
+            <h3>Ready for an unforgettable fishing adventure?</h3>
+            <p class="mb-4">Book your trip today and create memories that will last a lifetime!</p>
+            <a href="index.html#contact" class="btn btn-primary btn-lg">Book Now</a>
+        </div>
+    </div>
+    
+    <!-- Customer Testimonials Section -->
+    <section class="section py-5">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="text-center mb-5">Read what our guests have to say about their experiences with us</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial">
+                        <div class="testimonial-rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="font-italic">""Great time with Captain Johan and mate Jay. Beautiful day out at sea, catching 4 Baracuda. They also recommend a few local Restaurants that would could our catch of the day!</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center mt-3">
+                            <img src="caption2.jpg" alt="John D." class="rounded-circle mr-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <p class="font-weight-bold mb-0">Celeste F.</p>
+                                <p class="text-muted small">December 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="testimonial">
+                        <div class="testimonial-rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="font-italic">"We have been fishing with The Hooker for years now. Captain Johan is the best of the best. His 1st mate Jerry is also top notch. Went out again yesterday 9/17 and as usual these guys will get you on the fish. Always an incredible experience. Whether bottom fishing or deep sea fishing, you will NOT be disappointed. We have 10 yr old twins and they absolutely love it as well. These guys are tremendous with the youth and always give them a great time. I highly recommend The Hooker Aruba to anyone interested in hooking up. Beautiful boats, great gear, baits etc. We are looking forward to our April 2025 trip. 100% fishing with these guys again"</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center mt-3">
+                            <img src="caption.jpg" alt="Sarah M." class="rounded-circle mr-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <p class="font-weight-bold mb-0">Scott G.</p>
+                                <p class="text-muted small">September 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Replace the static TripAdvisor section with the TripAdvisor Widget -->
+    <section class="section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">TripAdvisor Reviews & Photos</h2>
+            <p class="text-center mb-5">See what travelers are sharing about us on TripAdvisor</p>
+            
+            <div class="row">
+                <div class="col-lg-5 mb-4">
+                    <!-- TripAdvisor Rating Widget -->
+                    <div id="TA_selfserveprop457" class="TA_selfserveprop">
+                        <ul id="4pQLs0B" class="TA_links Qmq7S6uI">
+                            <li id="tJGhq27" class="ZnbLM8">
+                                <a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html">
+                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" alt="TripAdvisor"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <script async src="https://www.jscache.com/wejs?wtype=selfserveprop&uniq=457&locationId=27541946&lang=en_US&rating=true&nreviews=5&writereviewlink=true&popIdx=true&iswide=false&border=true&display_version=2"></script>
+                </div>
+                
+                <div class="col-lg-7 mb-4">
+                    <!-- TripAdvisor Photo Widget -->
+                    <div id="TA_cdsscrollingravenarrow607" class="TA_cdsscrollingravenarrow">
+                        <ul id="RfxBlkVx" class="TA_links vy04kfzO1">
+                            <li id="KJEEqG" class="GYFMj9Q0i">
+                                <a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html">
+                                    <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <script async src="https://www.jscache.com/wejs?wtype=cdsscrollingravenarrow&uniq=607&locationId=27541946&lang=en_US&border=true&display_version=2"></script>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html" target="_blank" class="btn btn-outline-secondary">
+                    <i class="fab fa-tripadvisor mr-2"></i>View Our Full TripAdvisor Page
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section py-5" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="text-center mb-5">Find answers to our most commonly asked questions</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-white" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-dark text-decoration-none w-100 text-left d-flex justify-content-between align-items-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What's included in the trip price?
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Our trip prices include all fishing equipment (rods, reels, bait, tackle), fishing licenses, ice, bottled water, and expert guidance from our experienced crew. For snorkeling trips, we provide high-quality snorkeling gear. Specific trips like our sightseeing and snorkeling package include additional drinks and snacks.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-white" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-dark text-decoration-none w-100 text-left d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Do I need to bring my own fishing equipment?
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    No, we provide all the necessary fishing equipment for your trip, including quality rods, reels, bait, and tackle. However, if you prefer to use your own equipment, you're welcome to bring it along.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-white" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-dark text-decoration-none w-100 text-left d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        What kind of fish can we expect to catch?
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    In Aruba's waters, you can catch a variety of fish depending on the season and trip type. For bottom fishing, expect snapper, grouper, and triggerfish. Deep sea fishing may yield mahi-mahi (dorado), wahoo, tuna, barracuda, and occasionally marlin or sailfish. Our captain and crew will target the species that are most active during your trip.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 4 -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-white" id="headingFour">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-dark text-decoration-none w-100 text-left d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Can we keep the fish we catch?
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Yes, you can keep your catch! We practice sustainable fishing and follow all local regulations regarding size and catch limits. We're happy to clean and fillet your fish at the end of the trip, so you can take it with you to cook or have prepared at local restaurants that offer "cook your catch" services.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 5 -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-white" id="headingFive">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-dark text-decoration-none w-100 text-left d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        What if the weather is bad?
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Your safety is our top priority. If weather conditions are unsafe for fishing or snorkeling, we'll contact you to reschedule your trip or provide a full refund. Aruba typically has excellent weather, but conditions can change, and the captain makes the final decision regarding trip safety.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 6 -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-white" id="headingSix">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-dark text-decoration-none w-100 text-left d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        What should I bring on the trip?
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    We recommend bringing sunscreen, sunglasses, a hat, a light jacket or windbreaker, motion sickness medication if needed, a camera, and any personal snacks or beverages you prefer. Wear comfortable clothing and non-slip shoes. Don't forget to bring cash if you'd like to tip the crew for exceptional service.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 7 -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-white" id="headingSeven">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-dark text-decoration-none w-100 text-left d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        Can children join the fishing trips?
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Yes, children are welcome! Fishing and snorkeling can be great family activities. We have equipment suitable for all ages and experience levels. For young children, we recommend the shorter trips (3-4 hours). Children under 12 must be accompanied by an adult. Please let us know when booking if children will be joining, so we can prepare appropriately.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 8 -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-white" id="headingEight">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link text-dark text-decoration-none w-100 text-left d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                        What's your cancellation policy?
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    We understand plans can change. Cancellations made at least 7 days before your scheduled trip receive a full refund. Cancellations with less than 7 days' notice are non refundable. No-shows or cancellations on the day of the trip are non-refundable. Weather cancellations initiated by us are always fully refundable or can be rescheduled at your convenience.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <p>Have more questions? We're happy to help!</p>
+                <a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>The Hooker Fishing & Snorkeling</h5>
+                    <p>Experience the best fishing and snorkeling adventures in Aruba with our professional guides and well-equipped boats.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#boats">Our Boats</a></li>
+                        <li><a href="index.html#trips">Fishing Trips</a></li>
+                        <li><a href="photo-gallery.html">Gallery</a></li>
+                        <li><a href="index.html#contact">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i> 96 Berea di Piscado, Noord Aruba</p>
+                    <p><i class="fas fa-phone mr-2"></i> +297 6603623</p>
+                    <p><i class="fas fa-envelope mr-2"></i> thehookercharters@gmail.com</p>
+                </div>
+            </div>
+            <div class="text-center copyright">
+                <p>© 2023 The Hooker Fishing & Snorkeling. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize dropdown
+            $('.dropdown-toggle').dropdown();
+            
+            // Initialize carousel
+            $('#galleryCarousel').carousel();
+            
+            // Handle thumbnail clicks
+            $('.thumbnail').click(function() {
+                var slideIndex = $(this).data('slide-to');
+                $('#galleryCarousel').carousel(parseInt(slideIndex));
+                
+                // Update active thumbnail
+                $('.thumbnail').removeClass('active');
+                $(this).addClass('active');
+            });
+            
+            // Update thumbnail when carousel slides
+            $('#galleryCarousel').on('slid.bs.carousel', function() {
+                var index = $('.carousel-item.active').index();
+                $('.thumbnail').removeClass('active');
+                $('.thumbnail').eq(index).addClass('active');
+            });
+
+            // Gallery Filter
+            $('.filter-btn').on('click', function() {
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                var filter = $(this).data('filter');
+                if (filter === 'all') {
+                    $('.gallery-item').fadeIn(300);
+                } else {
+                    $('.gallery-item').fadeOut(0);
+                    $('.gallery-item[data-category="' + filter + '"]').fadeIn(300);
+                }
+            });
+
+            // Lightbox
+            var currentImageIndex;
+            var galleryItems = $('.gallery-item');
+
+            $('.gallery-item img').on('click', function() {
+                var src = $(this).attr('src');
+                currentImageIndex = galleryItems.index($(this).closest('.gallery-item'));
+                $('.lightbox img').attr('src', src);
+                $('.lightbox').fadeIn();
+            });
+
+            $('.lightbox-close').on('click', function() {
+                $('.lightbox').fadeOut();
+            });
+
+            $('.lightbox-next').on('click', function() {
+                currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+                var nextSrc = galleryItems.eq(currentImageIndex).find('img').attr('src');
+                $('.lightbox img').attr('src', nextSrc);
+            });
+
+            $('.lightbox-prev').on('click', function() {
+                currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+                var prevSrc = galleryItems.eq(currentImageIndex).find('img').attr('src');
+                $('.lightbox img').attr('src', prevSrc);
+            });
+
+            // Close lightbox on clicking outside the image
+            $('.lightbox').on('click', function(e) {
+                if ($(e.target).hasClass('lightbox')) {
+                    $(this).fadeOut();
+                }
+            });
+
+            // Video thumbnail click handler
+            $('.video-thumbnail').click(function() {
+                var slideIndex = $(this).data('slide-to');
+                $('#videoCarousel').carousel(parseInt(slideIndex));
+                
+                // Update active thumbnail
+                $('.video-thumbnail').removeClass('active');
+                $(this).addClass('active');
+            });
+            
+            // Update thumbnail when carousel slides
+            $('#videoCarousel').on('slid.bs.carousel', function() {
+                var index = $('.carousel-item.active').index();
+                $('.video-thumbnail').removeClass('active');
+                $('.video-thumbnail').eq(index).addClass('active');
+            });
+
+            // FAQ accordion
+            $('.collapse').on('show.bs.collapse', function() {
+                $(this).prev('.card-header').find('.fas').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+            });
+            
+            $('.collapse').on('hide.bs.collapse', function() {
+                $(this).prev('.card-header').find('.fas').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+            });
+
+            // 1. Remove images below the main image carousel
+            // This targets common carousel wrappers and removes image elements that follow them
+            $('.carousel, .image-carousel, #imageCarousel, .gallery-carousel').each(function() {
+                // Find the next elements that contain images and remove them
+                $(this).nextAll().find('img').parent().remove();
+                
+                // Alternative approach - remove all image containers after carousel
+                $(this).nextAll('.gallery-item, .image-item, .photo-item').remove();
+            });
+            
+            // 2. Move images from under the video carousel to a new location
+            // First, store the images we want to move
+            var videoCarouselImages = $('.video-carousel, #videoCarousel, .video-gallery').nextAll().find('img');
+            
+            // If we found any images
+            if(videoCarouselImages.length > 0) {
+                // Remove them from their current location
+                videoCarouselImages.parent().detach();
+                
+                // Create a new container for these images if needed
+                if($('.relocated-images').length === 0) {
+                    $('<div class="relocated-images row mt-5"></div>').insertAfter('.video-carousel, #videoCarousel, .video-gallery');
+                }
+                
+                // Append each image to the new container with proper formatting
+                videoCarouselImages.each(function() {
+                    var img = $(this);
+                    var imgContainer = $('<div class="col-md-4 col-sm-6 mb-4"></div>');
+                    var imgLink = $('<a href="' + img.attr('src') + '" data-lightbox="gallery"></a>');
+                    
+                    // Clone the image and add to our new structure
+                    imgLink.append(img.clone().addClass('img-fluid rounded'));
+                    imgContainer.append(imgLink);
+                    $('.relocated-images').append(imgContainer);
+                });
+            }
+            
+            // Clean up any empty containers that might be left
+            $('.gallery-container, .image-container, .photo-container').each(function() {
+                if($(this).children().length === 0) {
+                    $(this).remove();
+                }
+            });
+        });
+    </script>
+
+    <!-- Fix for social media links in gallery page -->
+    <script>
+        // Function to fix the social icons
+        function fixSocialIcons() {
+            console.log("Running social icon fix for gallery page");
+            
+            // Target the footer social icons specifically
+            var socialLinks = document.querySelectorAll('.footer .social-icons a, footer .social-icons a');
+            console.log("Found " + socialLinks.length + " social links in footer");
+            
+            socialLinks.forEach(function(link) {
+                // Get the icon inside the link
+                var icon = link.querySelector('i');
+                if (!icon) return;
+                
+                // Remove any existing href that might be causing refresh
+                if (link.href === window.location.href || link.href.includes('#')) {
+                    link.removeAttribute('href');
+                }
+                
+                // Set the appropriate social media URL based on icon
+                if (icon.className.includes('facebook')) {
+                    link.href = 'https://www.facebook.com/thehookercharters';
+                } else if (icon.className.includes('instagram')) {
+                    link.href = 'https://www.instagram.com/thehookercharters';
+                } else if (icon.className.includes('tripadvisor')) {
+                    link.href = 'https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html';
+                } else if (icon.className.includes('twitter')) {
+                    link.href = 'https://twitter.com/hookerfishing';
+                } else if (icon.className.includes('youtube')) {
+                    link.href = 'https://www.youtube.com/channel/your-channel-id';
+                }
+                
+                // Make sure they open in new tab
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+                
+                // Prevent default behavior just in case and add custom click handler
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(this.href, '_blank');
+                });
+                
+                console.log("Fixed link for: " + icon.className);
+            });
+        }
+        
+        // Run after DOM is loaded
+        document.addEventListener('DOMContentLoaded', fixSocialIcons);
+        
+        // Also run after a short delay to make sure all elements are loaded
+        setTimeout(fixSocialIcons, 1000);
+    </script>
+
+    <!-- Add direct replacement social links at the end of the footer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Target the footer
+            var footer = document.querySelector('footer');
+            if (!footer) return;
+            
+            // Find the social icons container
+            var socialContainer = footer.querySelector('.social-icons');
+            if (!socialContainer) {
+                // If it doesn't exist, find something similar
+                socialContainer = footer.querySelector('[class*="social"]');
+            }
+            
+            if (socialContainer) {
+                // Replace the entire container with new, properly functioning links
+                socialContainer.innerHTML = `
+                    <a href="https://www.facebook.com/thehookercharters" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/thehookercharters" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                `;
+                console.log("Replaced social container with direct links");
+            } else {
+                // If we couldn't find a container, add links to the footer
+                var newSocial = document.createElement('div');
+                newSocial.className = 'social-icons mt-3';
+                newSocial.innerHTML = `
+                    <a href="https://www.facebook.com/thehookercharters" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; font-size: 18px;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/thehookercharters" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; font-size: 18px;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html" target="_blank" rel="noopener noreferrer" style="font-size: 18px;">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                `;
+                footer.appendChild(newSocial);
+                console.log("Added new social links to footer");
+            }
+        });
+    </script>
+
+    <!-- Fix for the messed up reviews section -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Running fix for reviews section");
+            
+            // 1. First check if TripAdvisor widgets are present
+            var tripAdvisorWidgets = document.querySelectorAll('[id^="TA_"]');
+            
+            // If widgets are missing or broken, rebuild them
+            if (tripAdvisorWidgets.length === 0 || !document.querySelector('#TA_selfserveprop457') || !document.querySelector('#TA_cdsscrollingravenarrow607')) {
+                console.log("TripAdvisor widgets need to be restored");
+                
+                // Find the section that should contain the widgets
+                var reviewSection = document.querySelector('.section.py-5.bg-light') || 
+                                    document.querySelector('[class*="review"]') ||
+                                    document.querySelector('[id*="review"]');
+                
+                // If we found the section, restore the widgets
+                if (reviewSection) {
+                    var container = reviewSection.querySelector('.container');
+                    if (container) {
+                        // Create the new content with the proper TripAdvisor widgets
+                        var newContent = `
+                            <h2 class="section-title">TripAdvisor Reviews & Photos</h2>
+                            <p class="text-center mb-5">See what travelers are sharing about us on TripAdvisor</p>
+                            
+                            <div class="row">
+                                <div class="col-lg-5 mb-4">
+                                    <!-- TripAdvisor Rating Widget -->
+                                    <div id="TA_selfserveprop457" class="TA_selfserveprop">
+                                        <ul id="4pQLs0B" class="TA_links Qmq7S6uI">
+                                            <li id="tJGhq27" class="ZnbLM8">
+                                                <a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html">
+                                                    <img src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" alt="TripAdvisor"/>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <script async src="https://www.jscache.com/wejs?wtype=selfserveprop&uniq=457&locationId=27541946&lang=en_US&rating=true&nreviews=5&writereviewlink=true&popIdx=true&iswide=false&border=true&display_version=2"><\/script>
+                                </div>
+                                
+                                <div class="col-lg-7 mb-4">
+                                    <!-- TripAdvisor Photo Widget -->
+                                    <div id="TA_cdsscrollingravenarrow607" class="TA_cdsscrollingravenarrow">
+                                        <ul id="RfxBlkVx" class="TA_links vy04kfzO1">
+                                            <li id="KJEEqG" class="GYFMj9Q0i">
+                                                <a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html">
+                                                    <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor"/>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <script async src="https://www.jscache.com/wejs?wtype=cdsscrollingravenarrow&uniq=607&locationId=27541946&lang=en_US&border=true&display_version=2"><\/script>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <a href="https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html" target="_blank" class="btn btn-outline-secondary">
+                                    <i class="fab fa-tripadvisor mr-2"></i>View Our Full TripAdvisor Page
+                                </a>
+                            </div>
+                        `;
+                        
+                        // Replace the container content
+                        container.innerHTML = newContent;
+                        console.log("Restored TripAdvisor widgets");
+                    }
+                }
+            }
+            
+            // 2. Fix the testimonials section if it exists and is broken
+            var testimonialSection = document.querySelector('.testimonials-section');
+            if (testimonialSection) {
+                var testimonials = testimonialSection.querySelectorAll('.testimonial');
+                
+                // If testimonials are missing or broken, restore them
+                if (testimonials.length === 0 || testimonials[0].innerHTML.trim() === '') {
+                    console.log("Customer testimonials need to be restored");
+                    
+                    var testimonialContainer = testimonialSection.querySelector('.container');
+                    if (testimonialContainer) {
+                        var newTestimonials = `
+                            <h2 class="section-title text-center mb-5">What Our Customers Say</h2>
+                            
+                            <div class="row">
+                                <div class="col-lg-6 mb-4">
+                                    <div class="testimonial">
+                                        <div class="testimonial-rating mb-3">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                        </div>
+                                        <div class="testimonial-content">
+                                            <p class="font-italic">"What an incredible experience! Captain Mike and his crew were amazing. We caught several mahi-mahi and even a wahoo. They were professional, friendly, and made sure we had a great time. Will definitely book again on our next trip to Aruba!"</p>
+                                        </div>
+                                        <div class="testimonial-author d-flex align-items-center mt-3">
+                                            <img src="images/testimonials/person1.jpg" alt="John D." class="rounded-circle mr-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                            <div>
+                                                <p class="font-weight-bold mb-0">John D.</p>
+                                                <p class="text-muted small">July 2023</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6 mb-4">
+                                    <div class="testimonial">
+                                        <div class="testimonial-rating mb-3">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                        </div>
+                                        <div class="testimonial-content">
+                                            <p class="font-italic">"Our family had the best day snorkeling with The Hooker Charters! The boat was beautiful, the crew was knowledgeable and fun, and the snorkeling spots were incredible. They provided everything we needed and even had drinks and snacks. Highly recommend!"</p>
+                                        </div>
+                                        <div class="testimonial-author d-flex align-items-center mt-3">
+                                            <img src="images/testimonials/person2.jpg" alt="Sarah M." class="rounded-circle mr-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                            <div>
+                                                <p class="font-weight-bold mb-0">Sarah M.</p>
+                                                <p class="text-muted small">August 2023</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Replace the container content
+                        testimonialContainer.innerHTML = newTestimonials;
+                        console.log("Restored customer testimonials");
+                    }
+                }
+            }
+            
+            // 3. Fix any script loading issues that might be preventing widgets from loading
+            function loadScript(src) {
+                return new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = src;
+                    script.async = true;
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.body.appendChild(script);
+                });
+            }
+            
+            // Make sure TripAdvisor scripts are loaded
+            setTimeout(function() {
+                if (!window.TA || !window.taVer) {
+                    console.log("Reloading TripAdvisor scripts");
+                    loadScript("https://www.jscache.com/wejs?wtype=selfserveprop&uniq=457&locationId=27541946&lang=en_US&rating=true&nreviews=5&writereviewlink=true&popIdx=true&iswide=false&border=true&display_version=2");
+                    loadScript("https://www.jscache.com/wejs?wtype=cdsscrollingravenarrow&uniq=607&locationId=27541946&lang=en_US&border=true&display_version=2");
+                }
+            }, 2000);
+        });
+    </script>
+
+    <!-- Script to sync fonts and hamburger menu with index.html -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Syncing fonts and hamburger menu with index.html");
+            
+            // PART 1: SYNC FONT STYLES
+            function syncFontStyles() {
+                // Fetch index.html to extract its styles
+                fetch('index.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        const parser = new DOMParser();
+                        const indexDoc = parser.parseFromString(html, 'text/html');
+                        
+                        // Get all stylesheets from index.html
+                        const indexStyles = indexDoc.querySelectorAll('link[rel="stylesheet"], style');
+                        const currentStyles = document.querySelectorAll('link[rel="stylesheet"], style');
+                        
+                        // Check if we already have the same number of stylesheets
+                        if (indexStyles.length > currentStyles.length) {
+                            console.log("Adding missing stylesheets from index.html");
+                            
+                            // Add any missing stylesheets
+                            indexStyles.forEach(style => {
+                                const href = style.getAttribute('href');
+                                if (href) {
+                                    // Check if we already have this stylesheet
+                                    const exists = Array.from(currentStyles).some(s => s.getAttribute('href') === href);
+                                    if (!exists) {
+                                        const newLink = document.createElement('link');
+                                        newLink.rel = 'stylesheet';
+                                        newLink.href = href;
+                                        document.head.appendChild(newLink);
+                                        console.log("Added stylesheet: " + href);
+                                    }
+                                } else if (style.tagName === 'STYLE') {
+                                    // Copy inline styles if they don't exist
+                                    const newStyle = document.createElement('style');
+                                    newStyle.textContent = style.textContent;
+                                    document.head.appendChild(newStyle);
+                                    console.log("Added inline styles");
+                                }
+                            });
+                        }
+                        
+                        // Extract font-family definitions from index.html
+                        const indexFontStyles = Array.from(indexStyles)
+                            .map(style => {
+                                if (style.tagName === 'STYLE') {
+                                    return style.textContent;
+                                } else {
+                                    return '';
+                                }
+                            })
+                            .join(' ');
+                        
+                        // Create new style element for font-specific styles
+                        const fontStyle = document.createElement('style');
+                        fontStyle.textContent = `
+                            /* Copied font styles from index.html */
+                            body, html {
+                                font-family: ${window.getComputedStyle(indexDoc.body).fontFamily || 'inherit'};
+                            }
+                            
+                            /* Force same font settings for key elements */
+                            .navbar, .nav-item, .navbar-brand, h1, h2, h3, h4, h5, h6, p, button, a {
+                                font-family: ${window.getComputedStyle(indexDoc.body).fontFamily || 'inherit'} !important;
+                            }
+                            
+                            /* Copy computed styles for navbar */
+                            .navbar {
+                                font-size: ${window.getComputedStyle(indexDoc.querySelector('.navbar') || indexDoc.body).fontSize || 'inherit'};
+                                font-weight: ${window.getComputedStyle(indexDoc.querySelector('.navbar') || indexDoc.body).fontWeight || 'inherit'};
+                            }
+                            
+                            /* Ensure dropdown menu has same styling */
+                            .navbar-collapse, .dropdown-menu {
+                                font-family: ${window.getComputedStyle(indexDoc.body).fontFamily || 'inherit'} !important;
+                                font-size: ${window.getComputedStyle(indexDoc.querySelector('.navbar') || indexDoc.body).fontSize || 'inherit'};
+                            }
+                            
+                            /* Make sure hamburger icon matches */
+                            .navbar-toggler {
+                                border: ${window.getComputedStyle(indexDoc.querySelector('.navbar-toggler') || document.createElement('div')).border || '1px solid transparent'};
+                                padding: ${window.getComputedStyle(indexDoc.querySelector('.navbar-toggler') || document.createElement('div')).padding || '.25rem .75rem'};
+                            }
+                            
+                            /* Extract any custom font styles from index.html */
+                            ${indexFontStyles.match(/@font-face[^}]+}/g) || []}
+                        `;
+                        
+                        document.head.appendChild(fontStyle);
+                        console.log("Added font styles from index.html");
+                        
+                        // PART 2: FIX HAMBURGER MENU FUNCTIONALITY
+                        
+                        // 2A: Copy navbar toggle icon if different
+                        const indexToggler = indexDoc.querySelector('.navbar-toggler');
+                        const currentToggler = document.querySelector('.navbar-toggler');
+                        
+                        if (indexToggler && currentToggler && indexToggler.innerHTML !== currentToggler.innerHTML) {
+                            currentToggler.innerHTML = indexToggler.innerHTML;
+                            console.log("Updated hamburger icon to match index.html");
+                        }
+                        
+                        // 2B: Make sure menu has same classes and structure
+                        const indexNavbarMenu = indexDoc.querySelector('.navbar-collapse');
+                        const currentNavbarMenu = document.querySelector('.navbar-collapse');
+                        
+                        if (indexNavbarMenu && currentNavbarMenu) {
+                            // Copy classes from index navbar menu
+                            currentNavbarMenu.className = indexNavbarMenu.className;
+                            console.log("Updated navbar-collapse classes");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error syncing styles:", error);
+                    });
+            }
+            
+            // PART 3: FIX HAMBURGER MENU BEHAVIOR
+            function fixHamburgerMenu() {
+                const navbar = document.querySelector('.navbar');
+                const toggler = document.querySelector('.navbar-toggler');
+                const menu = document.querySelector('.navbar-collapse');
+                
+                if (!toggler || !menu) return;
+                
+                // Remove any existing event listeners by cloning and replacing
+                const newToggler = toggler.cloneNode(true);
+                toggler.parentNode.replaceChild(newToggler, toggler);
+                
+                // Add proper event listener for Bootstrap behavior
+                newToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    menu.classList.toggle('show');
+                    
+                    // Toggle aria-expanded attribute
+                    const expanded = newToggler.getAttribute('aria-expanded') === 'true' || false;
+                    newToggler.setAttribute('aria-expanded', !expanded);
+                    
+                    // Toggle navbar-toggler collapsed class
+                    newToggler.classList.toggle('collapsed');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (menu.classList.contains('show') && 
+                        !menu.contains(e.target) && 
+                        !newToggler.contains(e.target)) {
+                        menu.classList.remove('show');
+                        newToggler.classList.add('collapsed');
+                        newToggler.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                console.log("Fixed hamburger menu behavior");
+            }
+            
+            // Run the style sync
+            syncFontStyles();
+            
+            // Fix hamburger menu after a short delay to ensure DOM is updated
+            setTimeout(fixHamburgerMenu, 500);
+        });
+    </script>
+
+    <!-- This script will copy the navbar directly from index.html -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Syncing navbar with index.html");
+            
+            // Fetch the content from index.html
+            fetch('index.html')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const indexDoc = parser.parseFromString(html, 'text/html');
+                    
+                    // Find the navbar in index.html
+                    const indexNavbar = indexDoc.querySelector('nav.navbar');
+                    if (!indexNavbar) {
+                        console.error("Could not find navbar in index.html");
+                        return;
+                    }
+                    
+                    // Get the current gallery navbar
+                    const galleryNavbar = document.querySelector('nav.navbar');
+                    if (!galleryNavbar) {
+                        console.error("Could not find navbar in gallery page");
+                        return;
+                    }
+                    
+                    // Clone the navbar from index.html
+                    const newNavbar = indexNavbar.cloneNode(true);
+                    
+                    // Update the active status - remove active from Home, add to Gallery
+                    const homeItems = newNavbar.querySelectorAll('.nav-item.active, .nav-link.active');
+                    homeItems.forEach(item => item.classList.remove('active'));
+                    
+                    const galleryLinks = newNavbar.querySelectorAll('.nav-link[href="photo-gallery.html"], .nav-link[href="./photo-gallery.html"]');
+                    galleryLinks.forEach(link => {
+                        link.classList.add('active');
+                        link.parentElement.classList.add('active');
+                    });
+                    
+                    // Replace the gallery navbar with the one from index.html
+                    galleryNavbar.parentNode.replaceChild(newNavbar, galleryNavbar);
+                    console.log("Navbar successfully replaced");
+                })
+                .catch(error => {
+                    console.error("Error syncing navbar:", error);
+                });
+        });
+    </script>
+
+    <!-- First, include the Dancing Script font -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Then add this script to force the font on the navbar brand -->
+    <script>
+        // This script will run after the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force the Dancing Script font on the navbar brand directly
+            var navbarBrand = document.querySelector('.navbar-brand');
+            if (navbarBrand) {
+                console.log("Found navbar brand, applying Dancing Script font");
+                navbarBrand.style.fontFamily = "'Dancing Script', cursive";
+                navbarBrand.style.fontWeight = "700";
+                navbarBrand.style.fontSize = "1.6rem";
+                
+                // Log what happened for debugging
+                console.log("Applied styles to navbar brand:", navbarBrand);
+            } else {
+                console.error("Could not find navbar brand element");
+            }
+            
+            // Check if any previous scripts might be interfering
+            var allScripts = document.querySelectorAll('script');
+            console.log("Total scripts on page:", allScripts.length);
+        });
+    </script>
+
+    <!-- Add this just before the closing </body> tag to ensure the hamburger icon displays correctly -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add span element inside navbar-toggler-icon for the middle line
+            var togglerIcons = document.querySelectorAll('.navbar-toggler-icon');
+            togglerIcons.forEach(function(icon) {
+                if (!icon.querySelector('span')) {
+                    var span = document.createElement('span');
+                    icon.appendChild(span);
+                }
+            });
+        });
+    </script>
+
+    <!-- Add this script just before closing </body> tag -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add span element inside navbar-toggler-icon for the middle line
+            var togglerIcons = document.querySelectorAll('.navbar-toggler-icon');
+            togglerIcons.forEach(function(icon) {
+                if (!icon.querySelector('span')) {
+                    var span = document.createElement('span');
+                    icon.appendChild(span);
+                }
+            });
+            
+            // Enhanced toggle functionality for vertical navbar
+            var navbarToggler = document.querySelector('.navbar-toggler');
+            var navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarToggler && navbarCollapse) {
+                // Toggle menu when hamburger is clicked
+                navbarToggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navbarCollapse.classList.toggle('show');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!navbarToggler.contains(e.target) && !navbarCollapse.contains(e.target) && navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Add this script to ensure the correct calculation of navbar height -->
+    <script>
+        $(document).ready(function() {
+            // Function to measure and adjust the dropdown position
+            function adjustDropdownPosition() {
+                var navbarHeight = $('.navbar').outerHeight();
+                console.log("Navbar actual height: " + navbarHeight + "px");
+                
+                // Set the dropdown to appear exactly below the navbar
+                $('.navbar-collapse').css('top', navbarHeight + 'px');
+            }
+            
+            // Initial adjustment
+            adjustDropdownPosition();
+            
+            // Adjust on window resize
+            $(window).resize(adjustDropdownPosition);
+            
+            // Toggle menu with correct positioning
+            $('.navbar-toggler').on('click', function() {
+                adjustDropdownPosition(); // Ensure correct position before showing
+                $('.navbar-collapse').toggleClass('show');
+            });
+        });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+        // Make the hamburger lines white and visible
+        $('.navbar-toggler-icon').css('background-image', 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'30\' height=\'30\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'white\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e")');
+    });
+    </script>
+</body>
+</html> 

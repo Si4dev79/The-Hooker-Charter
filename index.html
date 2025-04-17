@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hooker Fishing &amp; Snorkeling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background-color: #1a3c6e;
+            padding: 5px 0;
+            min-height: 50px;
+        }
+        
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            font-size: 1.6rem;
+            padding: 0;
+        }
+        
+        .navbar-collapse {
+            background-color: rgba(26, 60, 110, 0.95);
+            padding: 10px;
+            border-radius: 0 0 8px 8px;
+            margin-top: 5px;
+        }
+        
+        .nav-item {
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 0;
+        }
+        
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-link {
+            padding: 0.5rem 1rem !important;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            color: #f8c12c !important;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('index.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            color: #1a3a5f;
+            border-bottom: 2px solid #1a3a5f;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .btn-primary {
+            background-color: #1a3a5f;
+            border-color: #1a3a5f;
+            padding: 0.5rem 1.5rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0d2845;
+            border-color: #0d2845;
+        }
+        
+        #contact {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        footer {
+            background-color: #1a3a5f;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .contact-info i {
+            width: 25px;
+            color: #1a3a5f;
+        }
+        
+        .section {
+            padding-top: 55px;
+        }
+        
+        /* Animation styles */
+        .animate-title {
+            animation: fadeInDown 1.2s ease-out;
+        }
+        
+        .animate-subtitle {
+            animation: fadeInUp 1.2s ease-out 0.3s;
+            animation-fill-mode: both;
+        }
+        
+        .animate-button {
+            animation: fadeIn 1.5s ease-out 0.6s;
+            animation-fill-mode: both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.4rem;
+            }
+            
+            .navbar {
+                padding: 4px 0;
+            }
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+        }
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Active link styling */
+        .nav-item.active .nav-link {
+            color: #f8c12c !important;
+            font-weight: 600;
+        }
+        
+        html {
+            scroll-padding-top: 55px;
+        }
+        
+        /* Cursive Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+        
+        /* Section titles */
+        .section-title {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Card titles */
+        .card-title {
+            font-size: 1.8rem;
+        }
+        
+        /* Highlight the Book Now button */
+        .navbar-nav .nav-item:last-child .nav-link {
+            background-color: #f8c12c;
+            color: #1a3c6e !important;
+            border-radius: 4px;
+            padding: 0.5rem 1.2rem !important;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        
+        .navbar-nav .nav-item:last-child .nav-link:hover {
+            background-color: #e9b424;
+        }
+        
+        /* Target the main header/hero background image section only */
+        .hero-section::before,
+        .hero-banner::before,
+        .hero::before,
+        #hero::before,
+        .hero-header::before,
+        .main-banner::before,
+        .banner::before,
+        #banner::before,
+        .header-bg::before,
+        .jumbotron::before,
+        header.bg-image::before {
+            background: none !important;
+            background-color: transparent !important;
+            opacity: 0 !important;
+            content: none !important;
+        }
+        
+        /* Also target the ::after pseudo-element for these sections */
+        .hero-section::after,
+        .hero-banner::after,
+        .hero::after,
+        #hero::after,
+        .hero-header::after,
+        .main-banner::after,
+        .banner::after,
+        #banner::after,
+        .header-bg::after,
+        .jumbotron::after,
+        header.bg-image::after {
+            background: none !important;
+            background-color: transparent !important;
+            opacity: 0 !important;
+            content: none !important;
+        }
+        
+        /* Target common overlay divs that might be in the hero section */
+        .hero-section .overlay,
+        .hero-banner .overlay,
+        .hero .overlay,
+        #hero .overlay,
+        .banner .overlay,
+        #banner .overlay,
+        .jumbotron .overlay {
+            background: none !important;
+            opacity: 0 !important;
+        }
+        
+        /* If the overlay is implemented as a gradient in the background-image property */
+        [style*="linear-gradient"] {
+            background-image: none !important;
+        }
+        
+        /* Specifically target backgrounds with gradients but preserve the actual image */
+        [style*="linear-gradient"][style*="url("] {
+            background-image: var(--original-bg-image, inherit) !important;
+        }
+        
+        /* Universal overlay removal - extremely aggressive */
+        *::before,
+        *::after {
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            opacity: 0 !important;
+        }
+        
+        /* Target any element with a class containing "overlay" */
+        [class*="overlay"],
+        .overlay,
+        .dark-overlay,
+        .image-overlay,
+        .bg-overlay,
+        .background-overlay,
+        .gradient-overlay,
+        .hero-overlay,
+        .section-overlay,
+        .black-overlay,
+        .color-overlay,
+        .tint-overlay,
+        .mask,
+        .bg-mask,
+        .dim-background {
+            display: none !important;
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            opacity: 0 !important;
+        }
+        
+        /* Fix gradient backgrounds that might be using linear-gradient */
+        [style*="linear-gradient"] {
+            background: none !important;
+        }
+        
+        /* Preserve just the image part of backgrounds */
+        [style*="url("] {
+            background-image: var(--bg-image-only) !important;
+            background-color: transparent !important;
+        }
+        
+        /* Add text shadow to headings and important text */
+        .hero h1, 
+        .hero h2,
+        .hero h3,
+        .hero p,
+        .banner h1,
+        .banner h2, 
+        .banner h3,
+        .banner p,
+        .header-content h1,
+        .header-content h2,
+        .header-content h3,
+        .header-content p,
+        .hero-text h1,
+        .hero-text h2,
+        .hero-text h3,
+        .hero-text p,
+        .jumbotron h1,
+        .jumbotron h2,
+        .jumbotron h3,
+        .jumbotron p,
+        .hero-caption,
+        .banner-caption,
+        .main-heading,
+        .tagline,
+        .header-caption,
+        .intro-text,
+        .header-title,
+        .header-subtitle,
+        .hero-section h1,
+        .hero-section h2,
+        .hero-section h3,
+        .hero-section p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 
+                         0px 0px 10px rgba(0, 0, 0, 0.5) !important;
+            font-weight: bold !important;
+        }
+        
+        /* Add extra shadow for "boat experience" text specifically */
+        h1 span, 
+        h2 span, 
+        h3 span,
+        .highlight,
+        [class*="experience"],
+        .hero span,
+        .banner span,
+        .header-content span {
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 
+                         0px 0px 15px rgba(0, 0, 0, 0.7) !important;
+            font-weight: bolder !important;
+        }
+    </style>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="The Hooker Fishing & Snorkeling Charters offers the best deep sea fishing and snorkeling experiences in Aruba. Book your adventure today!">
+    <meta name="keywords" content="fishing charters Aruba, deep sea fishing Aruba, Aruba fishing trips, snorkeling Aruba, boat tours Aruba, The Hooker Charters">
+    <meta name="author" content="The Hooker Fishing & Snorkeling">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="The Hooker Fishing & Snorkeling Charters | Aruba">
+    <meta property="og:description" content="Experience the best fishing and snorkeling adventures in Aruba with The Hooker Charters. Book your trip today!">
+    <meta property="og:image" content="https://yourdomain.com/images/the-hooker-boat.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Hooker Fishing & Snorkeling Charters | Aruba">
+    <meta name="twitter:description" content="Experience the best fishing and snorkeling adventures in Aruba with The Hooker Charters. Book your trip today!">
+    <meta name="twitter:image" content="https://yourdomain.com/images/the-hooker-boat.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com">
+    
+    <!-- Mobile Optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com https://www.google.com https://img.youtube.com https://www.youtube.com; img-src 'self' https://images.unsplash.com data:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://code.jquery.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com https://cdnjs.cloudflare.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">The Hooker Fishing & Snorkeling</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#boats">Our Boats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#trips">Fishing Trips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#find-us">Find Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="photo-gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="booking.html">Book Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="container text-center">
+            <h1 class="animate-title">Welcome to The Hooker adventures</h1>
+            <p class="lead animate-subtitle">For all boats experience, sunset, snorkeling, fishing, or just relaxing on a nice boat.</p>
+            <a href="#trips" class="btn btn-primary btn-lg animate-button">Explore Our Trips</a>
+        </div>
+    </div>
+
+    <div id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Welcome to The Hooker, your premier destination for unforgettable fishing and snorkeling adventures. With years of experience navigating these waters, our expert guides know exactly where to find the best catches and the most breathtaking underwater scenery.</p>
+                    <p>Whether you're a seasoned angler looking for a challenge or a family seeking a fun day on the water, we offer customized experiences to meet your needs. Our commitment to safety, quality equipment, and personalized service ensures that every trip with us becomes a cherished memory.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="index2.jpg" alt="Fishing Boat" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="trips" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Fishing Trips</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">🛥 The Hooker</h5>
+                            <p class="card-text">Blackfin yacht 32ft<br>Docks at Hardicurari pier, in front of the Marriot Hotel and the Moomba bar.</p>
+                            <h6>Inshore Bottom Fishing</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="far fa-clock mr-2"></i> Bottom fishing $400 (3 hours)</li>
+                                <li><i class="far fa-clock mr-2"></i> Bottom fishing $750 (6 hours)</li>
+                                <li><i class="far fa-clock mr-2"></i> Sunset fishing $400 (3 hours)</li>
+                                <li><i class="far fa-clock mr-2"></i> Bottom fishing and snorkeling mix trip $600 (4 hours)</li>
+                            </ul>
+                            <h6>Schedule</h6>
+                            <ul class="list-unstyled">
+                                <li>Bottom fishing: 7am-10am, 12pm-3pm, 7am-1pm</li>
+                                <li>Sunset fishing: 5pm-8pm</li>
+                                <li>Bottom fishing and snorkeling: 7am-11am, 12pm-4pm</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary btn-block">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">🛥 The Wicked Hooker</h5>
+                            <p class="card-text">Bertram yacht 44ft<br>Docks at Bucuti yacht club Aruba, right behind the airport.</p>
+                            <h6>Deepsea Fishing Trolling</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="far fa-clock mr-2"></i> Deepsea fishing $600 (4 hours)</li>
+                                <li><i class="far fa-clock mr-2"></i> Deepsea fishing $850 (6 hours)</li>
+                                <li><i class="far fa-clock mr-2"></i> Deepsea fishing $1100 (8 hours)</li>
+                            </ul>
+                            <h6>Boat Trip</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="far fa-clock mr-2"></i> Sightseeing snorkeling $1000 (4 hours, drinks and snacks included)</li>
+                            </ul>
+                            <h6>Schedule</h6>
+                            <ul class="list-unstyled">
+                                <li>Deepsea fishing: 7am-11am, 12pm-4pm, 7am-1pm, 7am-3pm</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary btn-block">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Additional Information</h5>
+                            <ul>
+                                <li>Prices are for up to 6 persons</li>
+                                <li>Any extra person: $50 per person</li>
+                                <li>Maximum passengers: 12 per boat</li>
+                                <li>Tips are cash only</li>
+                                <li>💳 5% will be added to the price when paying with credit card</li>
+                            </ul>
+                            <p><strong>Captain/Owner:</strong> Johan Croes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery" class="section">
+        <div class="container">
+            <h2 class="section-title">Creating Memories</h2>
+            <p class="text-center mb-5">Check out some of our amazing fishing adventures and catches!</p>
+            
+            <div class="row">
+                <!-- Gallery Item 1 -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="https://www.facebook.com/photo/?fbid=684127577055956&set=pcb.684128230389224" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="thehookerfb.jpg" class="img-fluid rounded">
+                    </a>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="https://www.facebook.com/photo/?fbid=1186711650130877&set=pb.100063761582008.-2207520000" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="thehookerfb2.jpg" class="img-fluid rounded">
+                    </a>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <a href="https://www.facebook.com/photo/?fbid=1134169945385048&set=pb.100063761582008.-2207520000" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                        <img src="thehookerfb3.jpg" class="img-fluid rounded">
+                    </a>
+                </div>
+                <!-- Add more gallery items as needed -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Find Us Section -->
+    <div class="section bg-light" id="find-us">
+        <div class="container">
+            <h2 class="section-title">Find Us</h2>
+            <p class="text-center mb-5">We're located at Berea di Piscado 96, Noord, Aruba</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="mb-3">Our Location</h4>
+                            <p><i class="fas fa-map-marker-alt mr-2"></i> 96 Berea di Piscado, Noord Aruba</p>
+                            <p><i class="fas fa-phone mr-2"></i> +297 6603623</p>
+                            <p><i class="fas fa-envelope mr-2"></i> thehookercharters@gmail.com</p>
+                            
+                            <hr class="my-4">
+                            
+                            <h4 class="mb-3">Getting Here</h4>
+                            <p>We are conveniently located near the high-rise hotel area in Noord. Our dock is easily accessible and has ample parking.</p>
+                            <p>From the major hotels in Palm Beach, it's approximately a 10-minute drive to our location.</p>
+                            
+                            <hr class="my-4">
+                            
+                            <h4 class="mb-3">Meeting Point</h4>
+                            <p>Please arrive 15 minutes before your scheduled departure time. Our captain will meet you at the dock.</p>
+                            <p>Look for our sign "The Hooker Fishing & Snorkeling" at the entrance.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7788.134454850868!2d-70.04710382545922!3d12.577818823390462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e85380155d39399%3A0x7a5894369821cbbb!2sBerea%20di%20Piscado%2096%2C%20Noord%2C%20Aruba!5e0!3m2!1sen!2sus!4v1744036283522!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="mb-4">The Hooker Fishing & Snorkeling</h4>
+                    <p>
+                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white mx-2"><i class="fab fa-tripadvisor"></i></a>
+                    </p>
+                    <p class="mt-3">&copy; 2023 The Hooker Fishing &amp; Snorkeling. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and jQuery Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Smooth scrolling for anchor links
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this.hash);
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 55
+                    }, 1000);
+                    
+                    // Close mobile menu when clicking a link
+                    $('.navbar-collapse').collapse('hide');
+                }
+            });
+            
+            // Close menu when clicking outside
+            $(document).click(function(event) {
+                var clickover = $(event.target);
+                var _opened = $(".navbar-collapse").hasClass("show");
+                
+                // Check if the click was outside the navbar and the navbar is open
+                if (_opened === true && !clickover.hasClass("navbar-toggler") && 
+                    !clickover.hasClass("navbar-toggler-icon") && 
+                    !clickover.closest('.navbar-collapse').length) {
+                    
+                    // Close the navbar
+                    $(".navbar-toggler").click();
+                }
+            });
+            
+            // Close menu when clicking any nav link (including non-anchor links)
+            $('.nav-link').click(function() {
+                $('.navbar-collapse').collapse('hide');
+            });
+            
+            // Add active class to nav items based on scroll position
+            $(window).scroll(function() {
+                var scrollDistance = $(window).scrollTop() + 60;
+                
+                // Assign active class to nav items
+                $('section').each(function(i) {
+                    if ($(this).position().top <= scrollDistance) {
+                        $('.navbar-nav .nav-item.active').removeClass('active');
+                        $('.navbar-nav .nav-item').eq(i).addClass('active');
+                    }
+                });
+            }).scroll();
+            
+            // Find elements with background gradients that also have images
+            $('[style*="linear-gradient"][style*="url("]').each(function() {
+                var style = $(this).attr('style');
+                var urlMatch = style.match(/url\(['"]?([^'")]+)['"]?\)/i);
+                
+                if (urlMatch && urlMatch[1]) {
+                    // Store the original image URL
+                    $(this).css('--original-bg-image', 'url(' + urlMatch[1] + ')');
+                }
+            });
+            
+            // Target specifically the footer social media icons
+            $('.footer .social-icons a, footer .social-icons a, .footer-social a, footer .social-links a').each(function() {
+                var icon = $(this).find('i');
+                
+                // Set URL based on icon class
+                if (icon.hasClass('fa-facebook') || icon.hasClass('fa-facebook-f')) {
+                    $(this).attr('href', 'https://www.facebook.com/thehookercharters');
+                    $(this).attr('title', 'https://www.facebook.com/thehookercharters');
+                } 
+                else if (icon.hasClass('fa-instagram')) {
+                    $(this).attr('href', 'https://www.instagram.com/thehookercharters');
+                    $(this).attr('title', 'Follow us on Instagram');
+                } 
+                else if (icon.hasClass('fa-twitter') || icon.hasClass('fa-twitter-square')) {
+                    $(this).attr('href', 'https://twitter.com/hookerfishing');
+                    $(this).attr('title', 'Follow us on Twitter');
+                }
+                else if (icon.hasClass('fa-tripadvisor')) {
+                    $(this).attr('href', 'https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html');
+                    $(this).attr('title', 'Read our TripAdvisor reviews');
+                }
+                else if (icon.hasClass('fa-youtube') || icon.hasClass('fa-youtube-square')) {
+                    $(this).attr('href', 'https://www.youtube.com/channel/your-channel-id');
+                    $(this).attr('title', 'Subscribe to our YouTube channel');
+                }
+                else if (icon.hasClass('fa-whatsapp')) {
+                    $(this).attr('href', 'https://wa.me/1234567890'); // Replace with your WhatsApp number
+                    $(this).attr('title', 'Contact us on WhatsApp');
+                }
+                
+                // Make links open in new tab with security attributes
+                $(this).attr('target', '_blank');
+                $(this).attr('rel', 'noopener noreferrer');
+            });
+        });
+    </script>
+    
+    <!-- Add structured data for rich snippets (add this before the closing </body> tag) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      "name": "The Hooker Fishing & Snorkeling Charters",
+      "description": "Professional fishing and snorkeling charters in Aruba offering half-day, full-day, and custom trips.",
+      "touristType": ["Fishing Enthusiasts", "Snorkelers", "Families", "Tourists"],
+      "offers": {
+        "@type": "Offer",
+        "priceRange": "$450 - $850",
+        "availability": "https://schema.org/InStock"
+      },
+      "provider": {
+        "@type": "TravelAgency",
+        "name": "The Hooker Fishing & Snorkeling",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Berea di Piscado 96",
+          "addressLocality": "Noord",
+          "addressRegion": "Aruba"
+        },
+        "telephone": "+297 6603623",
+        "email": "thehookercharters@gmail.com"
+      },
+      "subjectOf": {
+        "@type": "WebSite",
+        "url": "https://yourdomain.com"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "The Hooker Fishing & Snorkeling",
+      "image": "https://yourdomain.com/images/the-hooker-boat.jpg",
+      "url": "https://yourdomain.com",
+      "telephone": "+297 6603623",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Berea di Piscado 96",
+        "addressLocality": "Noord",
+        "addressRegion": "Aruba"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "12.577818823390462",
+        "longitude": "-70.04710382545922"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "07:00",
+        "closes": "19:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/thehookercharters",
+        "https://www.instagram.com/thehookercharters"
+      ]
+    }
+    </script>
+
+    <!-- JavaScript to handle backgrounds with images + other effects -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Find all elements with background images
+            const elements = document.querySelectorAll('*');
+            
+            elements.forEach(function(el) {
+                const style = window.getComputedStyle(el);
+                const bgImage = style.backgroundImage;
+                
+                // If element has a background image that includes a URL
+                if (bgImage && bgImage.includes('url(')) {
+                    // Extract just the URL part
+                    const urlMatch = bgImage.match(/url\(['"]?([^'")]+)['"]?\)/i);
+                    if (urlMatch && urlMatch[1]) {
+                        // Store just the image URL without any gradients
+                        el.style.setProperty('--bg-image-only', 'url(' + urlMatch[1] + ')');
+                        el.style.backgroundImage = 'url(' + urlMatch[1] + ')';
+                    }
+                }
+                
+                // Force remove any opacity settings that might be making the image darker
+                el.style.opacity = '1';
+            });
+            
+            // Find and remove any overlay elements
+            const overlays = document.querySelectorAll('[class*="overlay"], .mask, [class*="mask"]');
+            overlays.forEach(function(overlay) {
+                overlay.style.display = 'none';
+                overlay.style.opacity = '0';
+            });
+        });
+    </script>
+
+    <!-- Direct fix for social media icons -->
+    <script>
+        // Execute as soon as possible
+        document.addEventListener('DOMContentLoaded', function() {
+            // Direct DOM manipulation using vanilla JavaScript for reliability
+            // Facebook icons
+            document.querySelectorAll('.fa-facebook, .fa-facebook-f, .fab.fa-facebook, .fab.fa-facebook-f').forEach(function(icon) {
+                var link = icon.closest('a');
+                if (link) {
+                    link.href = 'https://www.facebook.com/thehookercharters';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.title = 'Visit our Facebook page';
+                    
+                    // Add click handler in case the href is being prevented
+                    link.onclick = function(e) {
+                        window.open('https://www.facebook.com/thehookercharters', '_blank');
+                    };
+                }
+            });
+            
+            // Instagram icons
+            document.querySelectorAll('.fa-instagram, .fab.fa-instagram').forEach(function(icon) {
+                var link = icon.closest('a');
+                if (link) {
+                    link.href = 'https://www.instagram.com/thehookercharters';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.title = 'Follow us on Instagram';
+                    
+                    // Add click handler in case the href is being prevented
+                    link.onclick = function(e) {
+                        window.open('https://www.instagram.com/thehookercharters', '_blank');
+                    };
+                }
+            });
+            
+            // TripAdvisor icons
+            document.querySelectorAll('.fa-tripadvisor, .fab.fa-tripadvisor').forEach(function(icon) {
+                var link = icon.closest('a');
+                if (link) {
+                    link.href = 'https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.title = 'Read our TripAdvisor reviews';
+                    
+                    // Add click handler in case the href is being prevented
+                    link.onclick = function(e) {
+                        window.open('https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html', '_blank');
+                    };
+                }
+            });
+            
+            // Add event listeners to all social icons as a fallback
+            document.querySelectorAll('.social-icons a, .footer-social a, .social-links a').forEach(function(link) {
+                // Only add listener if it doesn't already have an href
+                if (!link.href || link.href === '#' || link.href === window.location.href || link.href.endsWith('#')) {
+                    link.addEventListener('click', function(e) {
+                        var icon = link.querySelector('i');
+                        if (icon) {
+                            if (icon.classList.contains('fa-facebook') || icon.classList.contains('fa-facebook-f')) {
+                                window.open('https://www.facebook.com/thehookercharters', '_blank');
+                            } else if (icon.classList.contains('fa-instagram')) {
+                                window.open('https://www.instagram.com/thehookercharters', '_blank');
+                            } else if (icon.classList.contains('fa-tripadvisor')) {
+                                window.open('https://www.tripadvisor.com/Attraction_Review-g488162-d27541946-Reviews-The_Hooker_Fishing_Snorkeling_Charters-Noord_Aruba.html', '_blank');
+                            }
+                        }
+                    });
+                }
+            });
+            
+            // Log confirmation that the script ran
+            console.log('Social media icon links have been updated');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
